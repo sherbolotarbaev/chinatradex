@@ -8,7 +8,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { errorNotification } from '@/lib/notification';
 import { useLogInMutation } from '@/redux/api/auth';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 import Button from '@/components/ui/button/button';
 // import GoogleOAuthButton from '@/components/ui/button/google-oauth.button';
 
@@ -22,10 +22,10 @@ type FormData = {
 
 export default function LoginForm() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const next = decodeURIComponent(searchParams.get('next') ?? '/');
+  // const searchParams = useSearchParams();
+  // const next = decodeURIComponent(searchParams.get('next') ?? '/');
 
-  const nextUrl = next === '/' ? '/' : `?next=${next}`;
+  // const nextUrl = next === '/' ? '/' : `?next=${next}`;
 
   const {
     register,
@@ -49,7 +49,7 @@ export default function LoginForm() {
       const data = await logIn(formData).unwrap();
       router.push(data.redirectUrl);
     } catch (error: any) {
-      errorNotification(error.data?.message || 'Something went wrong');
+      errorNotification(error.data?.message || 'Что-то пошло не так');
       console.error(error);
     }
   };
