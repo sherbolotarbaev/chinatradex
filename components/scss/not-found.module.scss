@@ -1,0 +1,85 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+
+  max-width: 1300px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.85rem;
+
+    text-align: center;
+
+    .title {
+      font-size: 3.625rem;
+      font-weight: 700;
+      color: var(--accent-1);
+
+      @media (max-width: 1205px) {
+        font-size: 3.375rem;
+      }
+
+      @media (max-width: 875px) {
+        font-size: 2.875rem;
+      }
+
+      @media (max-width: 675px) {
+        font-size: 2.245rem;
+      }
+
+      @media (max-width: 555px) {
+        font-size: 2.05rem;
+      }
+
+      @media (max-width: 505px) {
+        font-size: 1.875rem;
+      }
+
+      @media (max-width: 475px) {
+        font-size: 1.405rem;
+      }
+
+      @media (max-width: 368px) {
+        font-size: 1.205rem;
+      }
+    }
+
+    .desc {
+      line-height: 1.5;
+
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--accent-2);
+
+      @media (max-width: 1205px) {
+        font-size: 1.175rem;
+      }
+
+      @media (max-width: 875px) {
+        font-size: 1.075rem;
+      }
+
+      @media (max-width: 675px) {
+        font-size: 1.1rem;
+      }
+
+      @media (max-width: 555px) {
+        font-size: 1.05rem;
+      }
+
+      @media (max-width: 475px) {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

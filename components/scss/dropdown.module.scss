@@ -1,0 +1,231 @@
+.wrapper {
+  position: relative;
+
+  @media (max-width: 945px) {
+    padding-top: 0.55rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+
+    border-top: 0.8px solid var(--accent-7);
+
+    .dropdown {
+      display: none;
+
+      height: 100%;
+      max-height: 200px;
+
+      background: var(--accent-8);
+      border-radius: 0.325rem;
+
+      overflow-y: auto;
+    }
+
+    .icon {
+      margin-left: auto;
+
+      transform: rotate(-90deg);
+    }
+
+    &.active {
+      .title {
+        background: var(--accent-8);
+
+        .icon {
+          transform: rotate(-180deg);
+        }
+      }
+
+      .dropdown {
+        display: block;
+      }
+    }
+  }
+
+  @media (min-width: 945px) {
+    &:hover,
+    &:active {
+      .dropdown {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .title {
+        background: var(--accent-8);
+
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  .title {
+    cursor: pointer;
+
+    padding: 0.35rem 0.65rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+    border-radius: 0.325rem;
+
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--accent-1);
+
+    transition: 0.25s;
+
+    .icon {
+      font-size: 1.35rem;
+
+      transition: 0.25s;
+    }
+  }
+
+  .dropdown {
+    width: 100%;
+
+    transition: 0.25s;
+
+    @media (min-width: 945px) {
+      width: 100vw;
+      max-width: 280px;
+
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      z-index: 200;
+      transform: translateX(-50%);
+
+      background: var(--bg-main);
+      border-radius: 0.585rem;
+      border: 0.8px solid var(--accent-7);
+      box-shadow: 0px 4px 18px rgb(0 0 0 / 4%),
+        0px 2.025px 7.84688px rgba(0, 0, 0, 0.027),
+        0px 0.8px 2.925px rgb(0 0 0 / 2%),
+        0px 0.175px 1.04062px rgba(0, 0, 0, 0.013);
+    }
+
+    .list {
+      display: flex;
+      align-items: start;
+      flex-direction: column;
+
+      @media (min-width: 945px) {
+        gap: 0.55rem;
+
+        padding: 0.55rem;
+      }
+
+      .link {
+        width: 100%;
+
+        padding: 0.35rem 0.85rem;
+
+        border-radius: 0.325rem;
+
+        transition: 0.25s;
+
+        &:hover {
+          background: var(--accent-8);
+        }
+
+        &.active {
+          background: var(--accent-9);
+        }
+
+        &:nth-child(1) {
+          &:hover,
+          &.active {
+            background: var(--green-bg);
+
+            .name,
+            .info {
+              color: var(--green-color);
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          &:hover,
+          &.active {
+            background: var(--orange-bg);
+
+            .name,
+            .info {
+              color: var(--orange-color);
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          &:hover,
+          &.active {
+            background: var(--blue-bg);
+
+            .name,
+            .info {
+              color: var(--blue-color);
+            }
+          }
+        }
+
+        &:nth-child(4) {
+          &:hover,
+          &.active {
+            background: var(--yellow-bg);
+
+            .name,
+            .info {
+              color: var(--yellow-color);
+            }
+          }
+        }
+
+        @media (max-width: 945px) {
+          border-radius: 0;
+        }
+
+        .name,
+        .info {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+
+          font-size: 1.075rem;
+          font-weight: 400;
+          color: var(--accent-1);
+
+          @media (max-width: 1205px) {
+            font-size: 0.825rem;
+          }
+
+          .tag {
+            padding: 0.15rem 0.25rem;
+
+            border-radius: 0.4rem;
+            background: var(--green-bg);
+
+            text-transform: uppercase;
+
+            font-size: 0.6rem;
+            font-weight: 800;
+            color: var(--green-color);
+          }
+        }
+
+        .info {
+          font-size: 0.8rem;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

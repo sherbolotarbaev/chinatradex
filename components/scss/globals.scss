@@ -1,0 +1,69 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  text-decoration: none;
+}
+
+:root {
+  --bg-main: #fff;
+  --blue-bg: #669df645;
+  --blue-color: #2f8cfd;
+  --green-bg: #c6f6d5;
+  --green-color: #22543d;
+  --orange-bg: #fce7d9;
+  --orange-color: #d2631e;
+  --yellow-bg: #fcf4d9;
+  --yellow-color: #776b34;
+  --accent-0: #121212;
+  --accent-0-hover: #333;
+  --accent-0-active: #404040;
+  --accent-1: rgb(55, 53, 47);
+  --accent-2: rgba(55, 53, 47, 0.65);
+  --accent-3: rgba(55, 53, 47, 0.5);
+  --accent-4: rgba(55, 53, 47, 0.4);
+  --accent-5: rgba(55, 53, 47, 0.3);
+  --accent-6: #d4d7db;
+  --accent-7: #dfe2e6;
+  --accent-8: #f7f7f7;
+  --accent-9: #f9f9f9;
+  --gradient-1: linear-gradient(180deg, #fff, #adadad);
+  --gradient-2: radial-gradient(
+    26.76% 85.52% at 86.73% -12.86%,
+    #c241ff 6.65%,
+    #6b57ff 100%
+  );
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+
+  min-width: 350px;
+
+  &.disabled {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg-main);
+
+  font-family: HarmonyOS Sans, PingFang TC, -apple-system, BlinkMacSystemFont,
+    segoe ui, Roboto, Helvetica, Arial, Hiragino Sans GB, WenQuanYi Micro Hei,
+    sans-serif;
+  color: var(--accent-1);
+}

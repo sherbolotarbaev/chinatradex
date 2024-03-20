@@ -1,0 +1,59 @@
+.logo_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  cursor: pointer;
+
+  .logo_container {
+    padding: 0.15rem;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    &.outline {
+      border: 0.8px solid var(--accent-2);
+    }
+
+    .logo {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    @media (max-width: 1205px) {
+      width: 38px;
+      height: 35px;
+    }
+
+    @media (max-width: 875px) {
+      width: 35px;
+      height: 38px;
+    }
+
+    @media (max-width: 675px) {
+      width: 33px;
+      height: 33px;
+    }
+  }
+
+  .name {
+    font-size: 0.785rem;
+    font-weight: 500;
+    color: var(--accent-2);
+
+    @media (max-width: 1205px) {
+      font-size: 0.765rem;
+    }
+
+    @media (max-width: 875px) {
+      font-size: 0.745rem;
+    }
+
+    @media (max-width: 675px) {
+      font-size: 0.725rem;
+    }
+  }
+}
