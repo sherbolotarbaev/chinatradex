@@ -9,6 +9,7 @@ import NavLinks from './navlinks';
 import Link from 'next/link';
 import Logo from '@/components/ui/logo';
 import Button from '@/components/ui/button/button';
+import Account from './account';
 
 import websiteLogo from '@/public/logo.png';
 import scss from '@/components/scss/navbar.module.scss';
@@ -52,6 +53,8 @@ export default function NavBar() {
         </div>
 
         <div className={scss.right}>
+          {me && !isLoading && <Account me={me} />}
+
           <Button adaptive redirect="/contact">
             Связаться
           </Button>

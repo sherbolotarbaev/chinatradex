@@ -124,6 +124,11 @@
 .button_load {
   cursor: not-allowed;
 
+  &:hover,
+  &:active {
+    background: var(--accent-0);
+  }
+
   &.white {
     background: linear-gradient(90deg, #ededed, #ffffff, #e4e4e4);
     background-size: 200% 200%;
