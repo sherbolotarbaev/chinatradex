@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "China TradeX",
-  description: "authorization application",
-  url: "https://sherbolotarbaev.vercel.app",
+  description:
+    "БИЗНЕС С КИТАЕМ 🇨🇳 | ГРУЗОПЕРЕВОЗКИ | ВЫКУП ТОВАРОВ | Alibaba | 1688 | Poizon | Taobao",
+  url: "https://chinatradex.vercel.app",
 };

@@ -12,6 +12,30 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
+  category: "cargo",
+  keywords: [
+    "товары из Китая",
+    "бизнес с Китаем",
+    "карго",
+    "chinatradex",
+    "выкуп товаров из Китая",
+    "доставка из Китая",
+    "Alibaba",
+    "1688",
+    "Poizon",
+    "Taobao",
+  ],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 interface Props {
