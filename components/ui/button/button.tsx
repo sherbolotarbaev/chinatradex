@@ -33,7 +33,9 @@ type TPosition = {
   left: string;
 };
 
-type TStyles = {};
+type TStyles = {
+  white: string;
+};
 
 type TTypes = {
   button: string;
@@ -78,12 +80,38 @@ export default function Button({
     if (load || isLoading) {
       return typeof load === 'string' ? (
         <>
-          <LoadSvg className={scss.load} style={{ fill: 'var(--accent-6)' }} />
+          <LoadSvg
+            className={scss.load}
+            style={
+              style === 'white'
+                ? {
+                    fontSize: '1.15rem',
+                    fill: 'var(--accent-1)',
+                  }
+                : {
+                    fontSize: '1.15rem',
+                    fill: 'var(--accent-6)',
+                  }
+            }
+          />
           {load}
         </>
       ) : (
         <>
-          <LoadSvg className={scss.load} style={{ fill: 'var(--accent-6)' }} />
+          <LoadSvg
+            className={scss.load}
+            style={
+              style === 'white'
+                ? {
+                    fontSize: '1.15rem',
+                    fill: 'var(--accent-1)',
+                  }
+                : {
+                    fontSize: '1.15rem',
+                    fill: 'var(--accent-6)',
+                  }
+            }
+          />
           {isLoading ? children : null}
         </>
       );

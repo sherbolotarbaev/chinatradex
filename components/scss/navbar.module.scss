@@ -29,6 +29,14 @@
     padding: 0.65rem 5%;
   }
 
+  .auth_link {
+    text-align: center;
+
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--accent-2);
+  }
+
   .content {
     display: flex;
     align-items: center;
@@ -53,7 +61,7 @@
         border-radius: 0.325rem;
 
         font-size: 0.875rem;
-        font-weight: 300;
+        font-weight: 400;
         color: var(--accent-1);
 
         transition: 0.25s;
@@ -264,7 +272,7 @@
           border-radius: 0.385rem;
 
           font-size: 0.785rem;
-          font-weight: 300;
+          font-weight: 400;
           color: var(--accent-1);
 
           transition: 0.25s;

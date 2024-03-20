@@ -1,6 +1,10 @@
 'use client';
 
 import NavBar from '@/components/ui/navbar/navbar';
+
+import SessionProvider from '@/lib/providers/session.provider';
+import ReduxProvider from '@/redux/provider';
+
 import { Toaster } from 'sonner';
 
 interface Props {
@@ -10,9 +14,11 @@ interface Props {
 export default function RootLayoutClient({ children }: Readonly<Props>) {
   return (
     <>
-      <NavBar />
+      <ReduxProvider>
+        <NavBar />
 
-      {children}
+        <SessionProvider>{children}</SessionProvider>
+      </ReduxProvider>
 
       <Toaster richColors />
     </>

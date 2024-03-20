@@ -3,15 +3,19 @@
 import React from 'react';
 
 import { siteConfig } from '@/config/site';
+import { useGetMeQuery } from '@/redux/api/me';
 
 import NavLinks from './navlinks';
+import Link from 'next/link';
 import Logo from '@/components/ui/logo';
-import Button from '@/components/ui/button';
+import Button from '@/components/ui/button/button';
 
 import websiteLogo from '@/public/logo.png';
 import scss from '@/components/scss/navbar.module.scss';
 
 export default function NavBar() {
+  const { data: me, isLoading } = useGetMeQuery();
+
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const burgerMenuRef = React.useRef<HTMLDivElement>(null);
@@ -51,6 +55,12 @@ export default function NavBar() {
           <Button adaptive redirect="/contact">
             Связаться
           </Button>
+
+          {!me && !isLoading && (
+            <Link href="/login" className={scss.auth_link}>
+              Войти
+            </Link>
+          )}
         </div>
 
         <div className={scss.burger_menu} ref={burgerMenuRef}>
@@ -75,6 +85,12 @@ export default function NavBar() {
             <Button adaptive redirect="/contact">
               Связаться
             </Button>
+
+            {!me && !isLoading && (
+              <Link href="/login" className={scss.auth_link}>
+                Войти
+              </Link>
+            )}
           </div>
         </div>
       </div>

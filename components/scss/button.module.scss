@@ -33,7 +33,7 @@
   &.disabled {
     cursor: not-allowed;
 
-    color: var(--accent-6);
+    color: var(--accent-5);
 
     &:hover,
     &:active {
@@ -43,6 +43,21 @@
 
   @media (max-width: 675px) {
     cursor: default;
+  }
+
+  &.white {
+    background: var(--accent-9);
+    border-color: var(--accent-6);
+
+    color: var(--accent-1);
+
+    &:hover {
+      background: var(--accent-9);
+    }
+
+    &:active {
+      outline-color: var(--blue-color);
+    }
   }
 
   .icon,
@@ -108,4 +123,29 @@
 
 .button_load {
   cursor: not-allowed;
+
+  &.white {
+    background: linear-gradient(90deg, #ededed, #ffffff, #e4e4e4);
+    background-size: 200% 200%;
+
+    color: var(--accent-3);
+
+    animation: loadingAnimation 2s linear infinite;
+
+    &::placeholder {
+      color: var(--accent-2);
+    }
+
+    @keyframes loadingAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
 }
