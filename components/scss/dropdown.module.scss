@@ -43,7 +43,7 @@
     }
   }
 
-  @media (min-width: 945px) {
+  @media (min-width: 944px) {
     &:hover,
     &:active {
       .dropdown {
@@ -90,7 +90,7 @@
 
     transition: 0.25s;
 
-    @media (min-width: 945px) {
+    @media (min-width: 944px) {
       width: 100vw;
       max-width: 280px;
 
@@ -118,7 +118,7 @@
       align-items: start;
       flex-direction: column;
 
-      @media (min-width: 945px) {
+      @media (min-width: 944px) {
         gap: 0.55rem;
 
         padding: 0.55rem;
