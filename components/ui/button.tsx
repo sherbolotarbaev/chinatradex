@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
-import { LoadSvg } from "@/public/svg";
-import scss from "@/components/scss/button.module.scss";
+import { LoadSvg } from '@/public/svg';
+import scss from '@/components/scss/button.module.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -26,7 +26,7 @@ interface Props {
   size?: TSize;
 }
 
-type TSize = "small";
+type TSize = 'small';
 
 type TPosition = {
   right: string;
@@ -46,7 +46,7 @@ export default function Button({
   icon,
   disabled = false,
   width,
-  type = "button",
+  type = 'button',
   load = false,
   onClick,
   redirect,
@@ -71,19 +71,19 @@ export default function Button({
     setIsLoading(true);
     setIsDisabled(true);
 
-    window.open(path.toString(), "_blank");
+    window.open(path.toString(), '_blank');
   };
 
   const renderButtonContent = () => {
     if (load || isLoading) {
-      return typeof load === "string" ? (
+      return typeof load === 'string' ? (
         <>
-          <LoadSvg className={scss.load} style={{ fill: "var(--accent-6)" }} />
+          <LoadSvg className={scss.load} style={{ fill: 'var(--accent-6)' }} />
           {load}
         </>
       ) : (
         <>
-          <LoadSvg className={scss.load} style={{ fill: "var(--accent-6)" }} />
+          <LoadSvg className={scss.load} style={{ fill: 'var(--accent-6)' }} />
           {isLoading ? children : null}
         </>
       );
@@ -92,13 +92,13 @@ export default function Button({
     return (
       <>
         {icon &&
-          icon.position === "left" &&
+          icon.position === 'left' &&
           React.cloneElement(icon.svg, {
             className: scss.icon,
           })}
         {children}
         {icon &&
-          icon.position === "right" &&
+          icon.position === 'right' &&
           React.cloneElement(icon.svg, {
             className: scss.icon,
           })}
@@ -126,15 +126,16 @@ export default function Button({
     size && scss[size],
   ]
     .filter(Boolean)
-    .join(" ");
+    .join(' ');
 
   return (
     <button
       type={type}
-      disabled={(typeof load === "boolean" && load === true) || disabled}
+      disabled={(typeof load === 'boolean' && load === true) || disabled}
       style={width ? { maxWidth: width } : undefined}
       onClick={handleClick}
-      className={buttonClassName}>
+      className={buttonClassName}
+    >
       {renderButtonContent()}
     </button>
   );

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import scss from "@/components/scss/page.module.scss";
+import scss from '@/components/scss/page.module.scss';
 
 export default function HomeClient() {
   return (

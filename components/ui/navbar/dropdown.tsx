@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import { ArrowSvg } from "@/public/svg";
-import scss from "@/components/scss/dropdown.module.scss";
+import { ArrowSvg } from '@/public/svg';
+import scss from '@/components/scss/dropdown.module.scss';
 
 export type TListItem = {
   path: string;
@@ -47,10 +47,9 @@ export default function Dropdown({ list, title }: Readonly<Props>) {
                   key={idx}
                   href={item.path}
                   className={
-                    pathname === item.path
-                      ? `${scss.link} ${scss.active}`
-                      : scss.link
-                  }>
+                    pathname === item.path ? `${scss.link} ${scss.active}` : scss.link
+                  }
+                >
                   <h2 className={scss.name}>
                     {item.name}
 

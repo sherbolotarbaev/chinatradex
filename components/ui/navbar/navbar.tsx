@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from '@/config/site';
 
-import NavLinks from "./navlinks";
-import Logo from "@/components/ui/logo";
-import Button from "@/components/ui/button";
+import NavLinks from './navlinks';
+import Logo from '@/components/ui/logo';
+import Button from '@/components/ui/button';
 
-import websiteLogo from "@/public/logo.png";
-import scss from "@/components/scss/navbar.module.scss";
+import websiteLogo from '@/public/logo.png';
+import scss from '@/components/scss/navbar.module.scss';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -31,10 +31,10 @@ export default function NavBar() {
       }
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, [isOpen]);
 
@@ -56,7 +56,8 @@ export default function NavBar() {
         <div className={scss.burger_menu} ref={burgerMenuRef}>
           <div
             className={isOpen ? `${scss.icon} ${scss.active}` : scss.icon}
-            onClick={handleOpenBurgerMenu}>
+            onClick={handleOpenBurgerMenu}
+          >
             <div>
               <span></span>
               <span></span>
@@ -65,7 +66,8 @@ export default function NavBar() {
 
           <div
             onClick={(e) => e.stopPropagation()}
-            className={isOpen ? `${scss.menu} ${scss.active}` : `${scss.menu}`}>
+            className={isOpen ? `${scss.menu} ${scss.active}` : `${scss.menu}`}
+          >
             <div className={scss.label}>Навигация</div>
 
             <NavLinks />

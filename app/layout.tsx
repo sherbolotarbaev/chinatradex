@@ -1,10 +1,10 @@
-import { siteConfig } from "@/config/site";
+import { siteConfig } from '@/config/site';
 
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import RootLayoutClient from "./layout.uc";
+import RootLayoutClient from './layout.uc';
 
-import "@/components/scss/globals.scss";
+import '@/components/scss/globals.scss';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -12,18 +12,18 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
-  category: "cargo",
+  category: 'cargo',
   keywords: [
-    "товары из Китая",
-    "бизнес с Китаем",
-    "карго",
-    "chinatradex",
-    "выкуп товаров из Китая",
-    "доставка из Китая",
-    "Alibaba",
-    "1688",
-    "Poizon",
-    "Taobao",
+    'товары из Китая',
+    'бизнес с Китаем',
+    'карго',
+    'chinatradex',
+    'выкуп товаров из Китая',
+    'доставка из Китая',
+    'Alibaba',
+    '1688',
+    'Poizon',
+    'Taobao',
   ],
   robots: {
     index: true,
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
 };

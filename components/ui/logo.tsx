@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
-import scss from "@/components/scss/logo.module.scss";
+import scss from '@/components/scss/logo.module.scss';
 
 interface Props {
   src: string | StaticImport;
@@ -17,28 +17,19 @@ interface Props {
   outline?: boolean;
 }
 
-export default function Logo({
-  src,
-  alt,
-  name,
-  color,
-  width,
-  height,
-  outline,
-}: Props) {
+export default function Logo({ src, alt, name, color, width, height, outline }: Props) {
   return (
     <>
       <Link className={scss.logo_wrapper} href="/">
         <div
           className={
-            outline
-              ? `${scss.logo_container} ${scss.outline}`
-              : scss.logo_container
+            outline ? `${scss.logo_container} ${scss.outline}` : scss.logo_container
           }
           style={{
-            width: width || "40px",
-            height: height || "40px",
-          }}>
+            width: width || '40px',
+            height: height || '40px',
+          }}
+        >
           <Image
             src={src}
             alt={alt}

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import NavBar from "@/components/ui/navbar/navbar";
-import { Toaster } from "sonner";
+import NavBar from '@/components/ui/navbar/navbar';
+import { Toaster } from 'sonner';
 
 interface Props {
   children: React.ReactNode;
