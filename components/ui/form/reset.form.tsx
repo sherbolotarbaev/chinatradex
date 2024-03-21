@@ -98,7 +98,7 @@ export default function ResetForm() {
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
                   placeholder="Введите новый пароль..."
                   {...register('password', {
-                    required: 'Это поле обязательно',
+                    required: 'Это поле является обязательным',
                     minLength: {
                       value: 8,
                       message: 'Пароль должен содержать не менее 8 символов',

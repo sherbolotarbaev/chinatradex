@@ -82,7 +82,7 @@ export default function ForgotForm() {
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
                   placeholder="Введите адрес электронной почты..."
                   {...register('email', {
-                    required: 'Это поле обязательно',
+                    required: 'Это поле является обязательным',
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                       message: 'Неверный адрес электронной почты',

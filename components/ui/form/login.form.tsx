@@ -123,7 +123,7 @@ export default function LoginForm() {
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
                   placeholder="Введите адрес электронной почты или имя пользователя..."
                   {...register('emailOrUsername', {
-                    required: 'Это поле обязательно',
+                    required: 'Это поле является обязательным',
                     pattern: {
                       value:
                         /^(?:[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}|[a-zA-Z0-9_-]+)$/,
@@ -165,7 +165,7 @@ export default function LoginForm() {
                   }
                   placeholder="Введите пароль..."
                   {...register('password', {
-                    required: 'Это поле обязательно',
+                    required: 'Это поле является обязательным',
                     minLength: {
                       value: 8,
                       message: 'Пароль должен содержать не менее 8 символов',
