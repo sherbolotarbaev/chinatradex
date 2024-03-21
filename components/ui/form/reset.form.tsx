@@ -75,7 +75,7 @@ export default function ResetForm() {
             <h2 className={scss.title}>Сброс пароля</h2>
 
             <span className={scss.info}>
-              Введите новый безопасный пароль и нажмите "Сохранить", чтобы обновить
+              Введите новый безопасный пароль и нажмите сохранить, чтобы обновить
               пароль.
             </span>
           </div>
