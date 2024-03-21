@@ -14,6 +14,7 @@ const nextConfig = {
     domains: [
       'zwolzmcodtrfbcofztei.supabase.co',
       'lh3.googleusercontent.com',
+      'cdn-icons-png.freepik.com',
       'localhost:3000',
     ],
   },

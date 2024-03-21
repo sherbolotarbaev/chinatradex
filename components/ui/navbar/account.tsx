@@ -2,14 +2,44 @@
 
 import React from 'react';
 
-import scss from '@/components/scss/account.module.scss';
+import { usePathname } from 'next/navigation';
+
 import Image from 'next/image';
+import Link from 'next/link';
+
+import { ArrowSvg } from '@/public/svg';
+import scss from '@/components/scss/account.module.scss';
 
 interface Props {
   me: User;
 }
 
+type TLink = {
+  name: string;
+  path: string;
+  count?: number;
+};
+
+const links: TLink[] = [
+  {
+    name: 'Профиль',
+    path: '/profile',
+  },
+  {
+    name: 'Корзина',
+    path: '/cart',
+    count: 99,
+  },
+  {
+    name: 'Заказы',
+    path: '/orders',
+    count: 1,
+  },
+];
+
 export default function Account({ me }: Readonly<Props>) {
+  const pathname = usePathname();
+
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const accountMenuRef = React.useRef<HTMLDivElement>(null);
@@ -39,35 +69,51 @@ export default function Account({ me }: Readonly<Props>) {
   return (
     <>
       <div
-        className={scss.account}
+        className={isOpen ? `${scss.wrapper} ${scss.active}` : scss.wrapper}
         onClick={(e) => e.stopPropagation()}
         ref={accountMenuRef}
       >
         <div className={scss.user} onClick={handleOpenAccountMenu}>
-          {me.photo && (
-            <div className={scss.photo_wrapper}>
-              <Image
-                src={me.photo}
-                alt={`${me.firstName} ${me.lastName}`}
-                className={scss.photo}
-                width={40}
-                height={40}
-              />
-            </div>
-          )}
+          <div className={scss.photo_wrapper}>
+            <Image
+              src={
+                me.photo
+                  ? me.photo
+                  : 'https://cdn-icons-png.freepik.com/512/552/552721.png'
+              }
+              alt={`${me.firstName} ${me.lastName}`}
+              className={scss.photo}
+              width={40}
+              height={40}
+            />
+          </div>
 
           <span className={scss.display_name}>
             {me.firstName} {me.lastName[0]}.
           </span>
+
+          <ArrowSvg className={scss.icon} />
         </div>
 
-        <div className={isOpen ? `${scss.menu} ${scss.active}` : scss.menu}>
+        <div className={scss.menu}>
           <div className={scss.list}>
             <span className={scss.email}>{me.email}</span>
 
-            <span className={scss.location}>
-              📍 {me.metaData[0].city}, {me.metaData[0].country}
-            </span>
+            {links.length && (
+              <div className={scss.links}>
+                {links.map((link, idx) => (
+                  <Link
+                    key={idx}
+                    href={link.path}
+                    className={
+                      pathname === link.path ? `${scss.link} ${scss.active}` : scss.link
+                    }
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>

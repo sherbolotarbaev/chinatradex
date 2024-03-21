@@ -8,8 +8,8 @@ import Link from 'next/link';
 import scss from '@/components/scss/navbar.module.scss';
 
 type TLink = {
-  path: string;
   name: string;
+  path: string;
 };
 
 const links: TLink[] = [

@@ -81,6 +81,14 @@ export default function NavBar() {
             onClick={(e) => e.stopPropagation()}
             className={isOpen ? `${scss.menu} ${scss.active}` : `${scss.menu}`}
           >
+            {me && !isLoading && (
+              <>
+                <div className={scss.label}>Аккаунт</div>
+
+                <Account me={me} />
+              </>
+            )}
+
             <div className={scss.label}>Навигация</div>
 
             <NavLinks />

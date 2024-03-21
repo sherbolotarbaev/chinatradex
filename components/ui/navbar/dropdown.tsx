@@ -26,13 +26,37 @@ export default function Dropdown({ list, title }: Readonly<Props>) {
 
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
+  const dropdownMenuRef = React.useRef<HTMLDivElement>(null);
+
   const handleOpenDropdownList = () => {
     setIsOpen(!isOpen);
   };
 
+  React.useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        isOpen &&
+        dropdownMenuRef.current &&
+        !dropdownMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [isOpen]);
+
   return (
     <>
-      <div className={isOpen ? `${scss.wrapper} ${scss.active}` : scss.wrapper}>
+      <div
+        className={isOpen ? `${scss.wrapper} ${scss.active}` : scss.wrapper}
+        onClick={(e) => e.stopPropagation()}
+        ref={dropdownMenuRef}
+      >
         <div className={scss.title} onClick={handleOpenDropdownList}>
           {title}
 
@@ -40,7 +64,7 @@ export default function Dropdown({ list, title }: Readonly<Props>) {
         </div>
 
         {list.length > 0 && (
-          <div className={scss.dropdown}>
+          <div className={scss.menu}>
             <div className={scss.list}>
               {list.map((item, idx) => (
                 <Link
