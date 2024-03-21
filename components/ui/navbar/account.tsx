@@ -7,6 +7,7 @@ import { useGetMeQuery } from '@/redux/api/me';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import LogOutButton from '../button/logout.button';
 
 import { ArrowSvg } from '@/public/svg';
 import scss from '@/components/scss/account.module.scss';
@@ -113,6 +114,8 @@ export default function Account() {
                 ))}
               </div>
             )}
+
+            <LogOutButton />
           </div>
         </div>
       </div>

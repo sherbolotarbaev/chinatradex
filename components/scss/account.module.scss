@@ -210,14 +210,18 @@
 
         padding: 0.55rem;
 
+        border-radius: 0.385rem;
+
         font-size: 0.785rem;
         font-weight: 400;
         color: var(--accent-2);
 
-        @media (min-width: 945px) {
-          font-size: 0.875rem;
+        transition: 0.25s;
 
+        @media (min-width: 945px) {
           border-bottom: 0.8px solid var(--accent-7);
+
+          font-size: 0.875rem;
         }
       }
 

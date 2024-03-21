@@ -45,6 +45,30 @@
     cursor: default;
   }
 
+  &.logout {
+    padding: 0.55rem;
+
+    justify-content: start;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0.385rem;
+
+    color: #e34c41;
+
+    &:hover {
+      background: #fa39282b;
+    }
+
+    &:active {
+      background: #fa39284f;
+    }
+
+    @media (max-width: 945px) {
+      font-size: 0.785rem;
+    }
+  }
+
   &.white {
     background: var(--accent-9);
     border-color: var(--accent-6);

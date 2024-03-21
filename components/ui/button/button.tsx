@@ -35,6 +35,7 @@ type TPosition = {
 
 type TStyles = {
   white: string;
+  logout: string;
 };
 
 type TTypes = {
@@ -63,9 +64,6 @@ export default function Button({
   const [isDisabled, setIsDisabled] = React.useState(false);
 
   const redirectToPage = (path: string) => {
-    setIsLoading(true);
-    setIsDisabled(true);
-
     router.push(path);
   };
 
