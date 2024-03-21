@@ -14,37 +14,37 @@ type ErrorCode = {
   message: string;
 };
 
+const errorCodes: ErrorCode[] = [
+  {
+    code: '401',
+    message: 'Пользователь не существует',
+  },
+  {
+    code: '403',
+    message: 'Пользователь был деактивирован',
+  },
+];
+
 export default function LoginClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const error = searchParams.get('error'); // 401 or 403
 
-  const errorCodes: ErrorCode[] = [
-    {
-      code: '401',
-      message: 'Пользователь не существует',
-    },
-    {
-      code: '403',
-      message: 'Пользователь был деактивирован',
-    },
-  ];
+  // React.useEffect(() => {
+  //   const checkErrors = () => {
+  //     if (error) {
+  //       const errorCode = errorCodes.find((item) => item.code === error);
 
-  React.useEffect(() => {
-    const checkErrors = () => {
-      if (error) {
-        const errorCode = errorCodes.find((item) => item.code === error);
+  //       router.replace('/login');
 
-        router.replace('/login');
+  //       if (errorCode) {
+  //         errorNotification(errorCode.message);
+  //       }
+  //     }
+  //   };
 
-        if (errorCode) {
-          errorNotification(errorCode.message);
-        }
-      }
-    };
-
-    checkErrors();
-  }, [error]);
+  //   checkErrors();
+  // }, [error]);
 
   return (
     <>
