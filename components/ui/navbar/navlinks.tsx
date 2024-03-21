@@ -7,6 +7,10 @@ import Link from 'next/link';
 
 import scss from '@/components/scss/navbar.module.scss';
 
+interface Props {
+  handleOpen: () => void;
+}
+
 type TLink = {
   name: string;
   path: string;
@@ -51,7 +55,7 @@ const dropdownList: TListItem[] = [
   },
 ];
 
-export default function NavLinks() {
+export default function NavLinks({ handleOpen }: Props) {
   const pathname = usePathname();
 
   if (!links.length) return null;
@@ -62,6 +66,7 @@ export default function NavLinks() {
         <Link
           key={idx}
           href={link.path}
+          onClick={handleOpen}
           className={pathname === link.path ? `${scss.link} ${scss.active}` : scss.link}
         >
           {link.name}

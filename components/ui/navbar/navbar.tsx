@@ -59,7 +59,7 @@ export default function NavBar() {
         <div className={scss.content}>
           <Logo src={websiteLogo} alt={siteConfig.name} />
 
-          <NavLinks />
+          <NavLinks handleOpen={handleOpenBurgerMenu} />
         </div>
 
         <div className={scss.right}>
@@ -99,7 +99,7 @@ export default function NavBar() {
 
             <div className={scss.label}>Навигация</div>
 
-            <NavLinks />
+            <NavLinks handleOpen={handleOpenBurgerMenu} />
 
             <Button adaptive redirect="/contact">
               Связаться
