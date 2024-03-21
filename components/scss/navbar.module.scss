@@ -74,6 +74,10 @@
           background: var(--accent-8);
         }
 
+        &:active {
+          background: var(--accent-7);
+        }
+
         &.active {
           background: var(--accent-9);
         }
@@ -283,6 +287,10 @@
 
           &:hover {
             background: var(--accent-8);
+          }
+
+          &:active {
+            background: var(--accent-7);
           }
 
           &.active {
