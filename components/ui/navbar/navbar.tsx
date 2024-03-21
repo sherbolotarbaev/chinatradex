@@ -43,6 +43,16 @@ export default function NavBar() {
     };
   }, [isOpen]);
 
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('disabled');
+    }
+
+    return () => {
+      document.body.classList.remove('disabled');
+    };
+  }, [isOpen]);
+
   return (
     <>
       <div className={scss.navbar}>
@@ -66,6 +76,8 @@ export default function NavBar() {
           )}
         </div>
 
+        <div className="cover" />
+
         <div className={scss.burger_menu} ref={burgerMenuRef}>
           <div
             className={isOpen ? `${scss.icon} ${scss.active}` : scss.icon}
@@ -81,7 +93,7 @@ export default function NavBar() {
             onClick={(e) => e.stopPropagation()}
             className={isOpen ? `${scss.menu} ${scss.active}` : `${scss.menu}`}
           >
-            <div className={scss.label}>Аккаунт</div>
+            {me && !isLoading && <div className={scss.label}>Аккаунт</div>}
 
             <Account />
 
