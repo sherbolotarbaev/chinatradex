@@ -3,16 +3,13 @@
 import React from 'react';
 
 import { usePathname } from 'next/navigation';
+import { useGetMeQuery } from '@/redux/api/me';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { ArrowSvg } from '@/public/svg';
 import scss from '@/components/scss/account.module.scss';
-
-interface Props {
-  me: User;
-}
 
 type TLink = {
   name: string;
@@ -37,7 +34,9 @@ const links: TLink[] = [
   },
 ];
 
-export default function Account({ me }: Readonly<Props>) {
+export default function Account() {
+  const { data: me, isLoading } = useGetMeQuery();
+
   const pathname = usePathname();
 
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -66,7 +65,7 @@ export default function Account({ me }: Readonly<Props>) {
     };
   }, [isOpen]);
 
-  return (
+  return me && !isLoading ? (
     <>
       <div
         className={isOpen ? `${scss.wrapper} ${scss.active}` : scss.wrapper}
@@ -118,5 +117,39 @@ export default function Account({ me }: Readonly<Props>) {
         </div>
       </div>
     </>
-  );
+  ) : localStorage.getItem('auth-user') && isLoading ? (
+    <>
+      <div className={`${scss.wrapper} ${scss.load}`}>
+        <div className={scss.user}>
+          <div className={scss.photo_wrapper}></div>
+
+          <span className={scss.display_name}></span>
+
+          <ArrowSvg className={scss.icon} />
+        </div>
+
+        <div className={scss.menu}>
+          <div className={scss.list}>
+            <span className={scss.email}></span>
+
+            {links.length && (
+              <div className={scss.links}>
+                {links.map((link, idx) => (
+                  <Link
+                    key={idx}
+                    href={link.path}
+                    className={
+                      pathname === link.path ? `${scss.link} ${scss.active}` : scss.link
+                    }
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </>
+  ) : null;
 }

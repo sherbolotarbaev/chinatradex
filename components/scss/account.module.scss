@@ -1,6 +1,72 @@
 .wrapper {
   position: relative;
 
+  &.load {
+    .user {
+      .display_name,
+      .photo_wrapper {
+        width: 100%;
+        max-width: 90px;
+
+        padding: 0.45rem;
+
+        background: linear-gradient(90deg, #797979, #ffffff, #e4e4e4);
+        border-radius: 0.235rem;
+        background-size: 200% 200%;
+
+        animation: loadingAnimation 2s linear infinite;
+
+        @keyframes loadingAnimation {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+      }
+
+      .photo_wrapper {
+        width: 35px;
+        height: 35px;
+
+        border-radius: 50%;
+      }
+    }
+
+    .menu {
+      .list {
+        .email {
+          width: 100%;
+
+          padding: 0.55rem;
+
+          background: linear-gradient(90deg, #797979, #ffffff, #e4e4e4);
+          border-radius: 0.235rem;
+          border-bottom: 0;
+          background-size: 200% 200%;
+
+          animation: loadingAnimation 2s linear infinite;
+
+          @keyframes loadingAnimation {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+
   @media (max-width: 945px) {
     padding-bottom: 0.55rem;
 

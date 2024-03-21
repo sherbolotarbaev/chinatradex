@@ -53,7 +53,7 @@ export default function NavBar() {
         </div>
 
         <div className={scss.right}>
-          {me && !isLoading && <Account me={me} />}
+          <Account />
 
           <Button adaptive redirect="/contact">
             Связаться
@@ -81,13 +81,9 @@ export default function NavBar() {
             onClick={(e) => e.stopPropagation()}
             className={isOpen ? `${scss.menu} ${scss.active}` : `${scss.menu}`}
           >
-            {me && !isLoading && (
-              <>
-                <div className={scss.label}>Аккаунт</div>
+            <div className={scss.label}>Аккаунт</div>
 
-                <Account me={me} />
-              </>
-            )}
+            <Account />
 
             <div className={scss.label}>Навигация</div>
 
