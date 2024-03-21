@@ -28,7 +28,7 @@ type ErrorCode = {
 const errorCodes: ErrorCode[] = [
   {
     code: '401',
-    message: 'Пользователь не существует',
+    message: 'Пользователя не существует',
   },
   {
     code: '403',
