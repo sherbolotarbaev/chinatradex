@@ -34,6 +34,12 @@ export default function SessionProvider({ children }: Readonly<Props>) {
       }
       break;
 
+    case '/profile':
+      if (!isAuth) {
+        redirect('/login?next=/profile');
+      }
+      break;
+
     default:
       break;
   }

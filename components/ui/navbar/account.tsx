@@ -25,13 +25,8 @@ const links: TLink[] = [
   },
   {
     name: 'Корзина',
-    path: '/cart',
+    path: '/profile/cart',
     count: 99,
-  },
-  {
-    name: 'Заказы',
-    path: '/orders',
-    count: 1,
   },
 ];
 
@@ -110,6 +105,8 @@ export default function Account() {
                     }
                   >
                     {link.name}
+
+                    {link.count && <span className={scss.count}>{link.count}</span>}
                   </Link>
                 ))}
               </div>
@@ -146,6 +143,8 @@ export default function Account() {
                     }
                   >
                     {link.name}
+
+                    {link.count && <span className={scss.count}>{link.count}</span>}
                   </Link>
                 ))}
               </div>

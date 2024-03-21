@@ -264,6 +264,19 @@
           @media (min-width: 945px) {
             font-size: 0.875rem;
           }
+
+          .count {
+            padding: 0.15rem 0.25rem;
+
+            border-radius: 0.4rem;
+            background: var(--orange-bg);
+
+            text-transform: uppercase;
+
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--orange-color);
+          }
         }
       }
     }
