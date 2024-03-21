@@ -35,6 +35,10 @@
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--accent-2);
+
+    &:hover {
+      color: var(--accent-1);
+    }
   }
 
   .content {
