@@ -15,14 +15,6 @@ export default function SessionProvider({ children }: Readonly<Props>) {
 
   const isAuth = me && !isLoading;
 
-  if (isAuth) {
-    localStorage.setItem('auth-user', `${me.id}`);
-  }
-
-  if (!me && !isLoading) {
-    localStorage.removeItem('auth-user');
-  }
-
   switch (pathname) {
     case '/login':
       if (isAuth) {

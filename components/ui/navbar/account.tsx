@@ -35,9 +35,9 @@ const links: TLink[] = [
 ];
 
 export default function Account() {
-  const { data: me, isLoading } = useGetMeQuery();
-
   const pathname = usePathname();
+
+  const { data: me, isLoading } = useGetMeQuery();
 
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
@@ -117,7 +117,7 @@ export default function Account() {
         </div>
       </div>
     </>
-  ) : localStorage.getItem('auth-user') && isLoading ? (
+  ) : isLoading ? (
     <>
       <div className={`${scss.wrapper} ${scss.load}`}>
         <div className={scss.user}>
