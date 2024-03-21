@@ -20,10 +20,27 @@ type FormData = {
   password: string;
 };
 
+type ErrorCode = {
+  code: string;
+  message: string;
+};
+
+const errorCodes: ErrorCode[] = [
+  {
+    code: '401',
+    message: 'Пользователь не существует',
+  },
+  {
+    code: '403',
+    message: 'Пользователь был деактивирован',
+  },
+];
+
 export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const next = decodeURIComponent(searchParams.get('next') ?? '/');
+  const error = searchParams.get('error'); // 401 or 403
 
   const nextUrl = next === '/' ? '/' : `?next=${next}`;
 
@@ -53,6 +70,22 @@ export default function LoginForm() {
       console.error(error);
     }
   };
+
+  React.useEffect(() => {
+    const checkErrors = () => {
+      if (error) {
+        const errorCode = errorCodes.find((item) => item.code === error);
+
+        router.replace('/login');
+
+        if (errorCode) {
+          errorNotification(errorCode.message);
+        }
+      }
+    };
+
+    checkErrors();
+  }, [error]);
 
   return (
     <>
