@@ -45,28 +45,8 @@ body {
 
   min-width: 350px;
 
-  .cover {
-    display: none;
-  }
-
   &.disabled {
     -webkit-overflow-scrolling: touch;
-
-    @media (max-width: 945px) {
-      .cover {
-        width: 100vw;
-        height: 100vh;
-
-        display: block;
-
-        position: fixed;
-        left: 0;
-        top: 0;
-        z-index: 1;
-
-        background: #85858560;
-      }
-    }
   }
 }
 

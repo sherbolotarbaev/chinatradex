@@ -76,8 +76,6 @@ export default function NavBar() {
           )}
         </div>
 
-        <div className="cover" />
-
         <div className={scss.burger_menu} ref={burgerMenuRef}>
           <div
             className={isOpen ? `${scss.icon} ${scss.active}` : scss.icon}
