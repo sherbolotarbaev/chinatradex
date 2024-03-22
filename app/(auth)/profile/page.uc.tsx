@@ -9,6 +9,7 @@ import { useGetMeQuery } from '@/redux/api/me';
 import { useUploadPhotoMutation } from '@/redux/api/upload';
 
 import Image from 'next/image';
+import Button from '@/components/ui/button/button';
 
 import scss from '@/components/scss/profile.module.scss';
 
@@ -36,7 +37,7 @@ export default function ProfileClient() {
   };
 
   if (!me && !isLoading) {
-    return null;
+    router.push('/login');
   }
 
   return (
@@ -50,29 +51,36 @@ export default function ProfileClient() {
             hidden
             onChange={handleUploadPhoto}
           />
-
-          <div
-            className={
-              isUploading ? `${scss.photo_wrapper} ${scss.load}` : scss.photo_wrapper
-            }
-            onClick={() => fileRef.current?.click()}
-          >
-            <Image
-              src={
-                me?.photo
-                  ? me.photo
-                  : 'https://cdn-icons-png.freepik.com/512/552/552721.png'
+          <div className={scss.photo_container}>
+            <div
+              className={
+                isUploading ? `${scss.photo_wrapper} ${scss.load}` : scss.photo_wrapper
               }
-              alt={`${me?.firstName} ${me?.lastName}`}
-              className={scss.photo}
-              width={96}
-              height={96}
-            />
+            >
+              <Image
+                src={me?.photo || 'https://cdn-icons-png.freepik.com/512/552/552721.png'}
+                alt={`${me?.firstName} ${me?.lastName}`}
+                className={scss.photo}
+                width={96}
+                height={96}
+              />
+            </div>
+
+            <Button
+              width={120}
+              style="white"
+              size="small"
+              onClick={() => fileRef.current?.click()}
+            >
+              Изменить фото
+            </Button>
           </div>
 
           <h2 className={scss.title}>
-            Welcome, {me?.firstName} {me?.lastName}
+            Добро пожаловать, {me?.firstName} {me?.lastName} 👋
           </h2>
+
+          <span className={scss.email}>{me?.email}</span>
         </div>
       </section>
     </>

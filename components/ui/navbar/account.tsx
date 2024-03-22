@@ -71,11 +71,7 @@ export default function Account() {
         <div className={scss.user} onClick={handleOpenAccountMenu}>
           <div className={scss.photo_wrapper}>
             <Image
-              src={
-                me.photo
-                  ? me.photo
-                  : 'https://cdn-icons-png.freepik.com/512/552/552721.png'
-              }
+              src={me?.photo || 'https://cdn-icons-png.freepik.com/512/552/552721.png'}
               alt={`${me.firstName} ${me.lastName}`}
               className={scss.photo}
               width={40}

@@ -22,46 +22,53 @@
 
     padding: 0 1.15rem;
 
-    .photo_wrapper {
-      width: 96px;
-      height: 96px;
-
+    .photo_container {
       display: flex;
       align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      gap: 0.35rem;
 
-      overflow: hidden;
+      .photo_wrapper {
+        width: 96px;
+        height: 96px;
 
-      border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-      &.load {
-        background: linear-gradient(90deg, #e7e7e7, #ffffff, #e4e4e4);
-        background-size: 500% 500%;
+        overflow: hidden;
 
-        animation: loadingAnimation 2s linear infinite;
+        border-radius: 50%;
 
-        @keyframes loadingAnimation {
-          0% {
-            background-position: 0% 50%;
+        &.load {
+          background: linear-gradient(90deg, #e7e7e7, #ffffff, #e4e4e4);
+          background-size: 500% 500%;
+
+          animation: loadingAnimation 2s linear infinite;
+
+          @keyframes loadingAnimation {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
           }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
+
+          .photo {
+            display: none;
           }
         }
 
         .photo {
-          display: none;
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
         }
-      }
-
-      .photo {
-        width: 100%;
-        height: 100%;
-
-        object-fit: cover;
       }
     }
 
