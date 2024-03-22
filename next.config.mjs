@@ -9,6 +9,10 @@ const nextConfig = {
     return config;
   },
 
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+
   images: {
     formats: ['image/avif', 'image/webp'],
     domains: [
