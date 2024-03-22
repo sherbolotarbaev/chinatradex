@@ -26,7 +26,7 @@ export default function ProfileClient() {
 
     if (file && me) {
       try {
-        const data = await upload({ file }).unwrap();
+        await upload({ file }).unwrap();
         router.refresh();
       } catch (error: any) {
         errorNotification(error.data.message || 'Что-то пошло не так');
@@ -65,8 +65,8 @@ export default function ProfileClient() {
               }
               alt={`${me?.firstName} ${me?.lastName}`}
               className={scss.photo}
-              width={40}
-              height={40}
+              width={96}
+              height={96}
             />
           </div>
 
