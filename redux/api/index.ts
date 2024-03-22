@@ -18,6 +18,6 @@ export const api = createApi({
   baseQuery: baseQueryExtended,
   refetchOnReconnect: true,
   refetchOnFocus: false,
-  tagTypes: ['me', 'auth'],
+  tagTypes: ['me', 'auth', 'upload'],
   endpoints: (builder) => ({}),
 });

@@ -1,6 +1,6 @@
 'use client';
 
-import { redirect, usePathname } from 'next/navigation';
+import { usePathname, useSearchParams, redirect } from 'next/navigation';
 
 import { useGetMeQuery } from '@/redux/api/me';
 
@@ -9,7 +9,9 @@ interface Props {
 }
 
 export default function SessionProvider({ children }: Readonly<Props>) {
+  const searchParams = useSearchParams();
   const pathname = usePathname();
+  const next = decodeURIComponent(searchParams.get('next') ?? '/');
 
   const { data: me, isLoading } = useGetMeQuery();
 
@@ -18,19 +20,19 @@ export default function SessionProvider({ children }: Readonly<Props>) {
   switch (pathname) {
     case '/login':
       if (isAuth) {
-        redirect('/');
+        redirect(`${decodeURIComponent(next)}`);
       }
       break;
 
     case '/password/forgot':
       if (isAuth) {
-        redirect('/');
+        redirect(`${decodeURIComponent(next)}`);
       }
       break;
 
     case '/password/reset':
       if (isAuth) {
-        redirect('/');
+        redirect(`${decodeURIComponent(next)}`);
       }
       break;
 
