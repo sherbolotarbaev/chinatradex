@@ -17,10 +17,6 @@ export default function ProfileClient() {
 
   const { data: me, isLoading } = useGetMeQuery();
 
-  if (!me && !isLoading) {
-    return null;
-  }
-
   const fileRef = React.useRef<HTMLInputElement | null>(null);
 
   const [upload, { isLoading: isUploading }] = useUploadPhotoMutation();
@@ -38,6 +34,10 @@ export default function ProfileClient() {
       }
     }
   };
+
+  if (!me && !isLoading) {
+    return null;
+  }
 
   return (
     <>
