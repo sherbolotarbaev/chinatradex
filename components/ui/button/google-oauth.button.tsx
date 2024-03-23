@@ -1,12 +1,16 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
+
 import Button from './button';
 
 import { GoogleSvg } from '@/public/svg';
 
 export default function GoogleOAuthButton() {
+  const searchParams = useSearchParams();
+
   const OAuthUrl = new URL(
-    `${process.env.NEXT_PUBLIC_API_URL}/google/callback`,
+    `${process.env.NEXT_PUBLIC_API_URL}/google/callback?${searchParams.toString()}`,
   ).toString();
 
   return (
