@@ -16,7 +16,7 @@ import scss from '@/components/scss/profile.module.scss';
 export default function ProfileClient() {
   const router = useRouter();
 
-  const { data: me, isLoading } = useGetMeQuery();
+  const { data: me, isLoading, refetch } = useGetMeQuery();
 
   const fileRef = React.useRef<HTMLInputElement | null>(null);
 
@@ -27,7 +27,9 @@ export default function ProfileClient() {
 
     if (file && me) {
       try {
-        await upload({ file }).unwrap();
+        await upload({ file })
+          .unwrap()
+          .then(() => refetch());
         router.refresh();
       } catch (error: any) {
         errorNotification(error.data.message || 'Что-то пошло не так');
