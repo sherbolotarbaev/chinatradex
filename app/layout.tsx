@@ -1,5 +1,6 @@
 import { siteConfig } from '@/config/site';
 
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
 import RootLayoutClient from './layout.uc';
@@ -54,7 +55,9 @@ export default async function RootLayout({ children }: Readonly<Props>) {
       </head>
 
       <body>
-        <RootLayoutClient>{children}</RootLayoutClient>
+        <Suspense fallback={<span>Loading..</span>}>
+          <RootLayoutClient>{children}</RootLayoutClient>
+        </Suspense>
       </body>
     </html>
   );
