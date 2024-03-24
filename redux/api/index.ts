@@ -17,7 +17,7 @@ export const api = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryExtended,
   refetchOnReconnect: true,
-  refetchOnFocus: false,
+  refetchOnFocus: true,
   tagTypes: ['me', 'auth', 'upload'],
   endpoints: (builder) => ({}),
 });
