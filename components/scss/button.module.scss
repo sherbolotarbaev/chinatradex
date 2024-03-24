@@ -39,6 +39,30 @@
     &:active {
       background: var(--accent-0);
     }
+
+    &.white {
+      color: var(--accent-2);
+
+      &:hover {
+        background: var(--accent-9);
+      }
+
+      &:active {
+        outline: 0;
+      }
+
+      @keyframes loadingAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    }
   }
 
   @media (max-width: 675px) {
@@ -80,6 +104,7 @@
     }
 
     &:active {
+      background: var(--accent-9);
       outline-color: var(--blue-color);
     }
   }
@@ -157,13 +182,9 @@
     background: linear-gradient(90deg, #ededed, #ffffff, #e4e4e4);
     background-size: 200% 200%;
 
-    color: var(--accent-3);
+    color: var(--accent-2);
 
     animation: loadingAnimation 2s linear infinite;
-
-    &::placeholder {
-      color: var(--accent-2);
-    }
 
     @keyframes loadingAnimation {
       0% {

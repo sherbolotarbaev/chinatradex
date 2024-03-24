@@ -83,7 +83,7 @@ export default function ProfileClient() {
             <h2 className={scss.title}>
               {me?.firstName} {me?.lastName}
               {me && (
-                <Button width={140} style="white" size="small">
+                <Button width={140} style="white" size="small" disabled>
                   Изменить профиль
                 </Button>
               )}
