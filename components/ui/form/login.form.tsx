@@ -80,6 +80,7 @@ export default function LoginForm() {
 
         if (errorCode) {
           errorNotification(errorCode.message);
+          alert(errorCode.message);
         }
       }
     };
