@@ -39,7 +39,7 @@ export default function ProfileClient() {
   };
 
   if (!me && !isLoading) {
-    router.push('/login');
+    router.push('/login?next=/profile');
   }
 
   return (
@@ -56,7 +56,9 @@ export default function ProfileClient() {
           <div className={scss.photo_container}>
             <div
               className={
-                isUploading ? `${scss.photo_wrapper} ${scss.load}` : scss.photo_wrapper
+                isUploading || isLoading
+                  ? `${scss.photo_wrapper} ${scss.load}`
+                  : scss.photo_wrapper
               }
             >
               <Image
@@ -77,12 +79,18 @@ export default function ProfileClient() {
               Изменить фото
             </Button>
           </div>
+          <div className={isLoading ? `${scss.text} ${scss.load}` : scss.text}>
+            <h2 className={scss.title}>
+              {me?.firstName} {me?.lastName}
+              {me && (
+                <Button width={140} style="white" size="small">
+                  Изменить профиль
+                </Button>
+              )}
+            </h2>
 
-          <h2 className={scss.title}>
-            Добро пожаловать, {me?.firstName} {me?.lastName} 👋
-          </h2>
-
-          <span className={scss.email}>{me?.email}</span>
+            <span className={scss.email}>{me?.email}</span>
+          </div>
         </div>
       </section>
     </>
