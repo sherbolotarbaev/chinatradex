@@ -80,6 +80,11 @@ export default function ProfileClient() {
             </Button>
           </div>
           <div className={isLoading ? `${scss.text} ${scss.load}` : scss.text}>
+            <span className={scss.location}>
+              {me?.metaData.length &&
+                `${me?.metaData[0].city}, ${me?.metaData[0].country}`}
+            </span>
+
             <h2 className={scss.title}>
               {me?.firstName} {me?.lastName}
               {me && (
