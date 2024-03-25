@@ -6,8 +6,8 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-instance.interceptors.request.use(async (config) => {
-  return config;
-});
+// instance.interceptors.request.use(async (config) => {
+//   return config;
+// });
 
 export default instance;
