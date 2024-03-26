@@ -96,7 +96,7 @@ export default function ResetForm() {
                   type="password"
                   disabled={isLoading}
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
-                  placeholder="Введите новый пароль..."
+                  placeholder="Введите новый пароль"
                   {...register('password', {
                     required: 'Это поле является обязательным',
                     minLength: {
@@ -137,7 +137,7 @@ export default function ResetForm() {
                   type="password"
                   disabled={isLoading}
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
-                  placeholder="Подтвердите новый пароль..."
+                  placeholder="Подтвердите новый пароль"
                   {...register('confirmPassword', {
                     required: 'Подтвердите свой пароль',
                     minLength: {

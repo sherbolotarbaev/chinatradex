@@ -80,7 +80,7 @@ export default function ForgotForm() {
                   type="text"
                   disabled={isLoading}
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
-                  placeholder="Введите адрес электронной почты..."
+                  placeholder="Введите адрес электронной почты"
                   {...register('email', {
                     required: 'Это поле является обязательным',
                     pattern: {

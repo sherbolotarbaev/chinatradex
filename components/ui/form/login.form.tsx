@@ -119,7 +119,7 @@ export default function LoginForm() {
                   type="text"
                   disabled={isLoading}
                   className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
-                  placeholder="Введите адрес электронной почты или имя пользователя..."
+                  placeholder="Введите адрес электронной почты или имя пользователя"
                   {...register('emailOrUsername', {
                     required: 'Это поле является обязательным',
                     pattern: {
@@ -161,7 +161,7 @@ export default function LoginForm() {
                       ? `${scss.input} ${scss.load} ${scss.password}`
                       : `${scss.input} ${scss.password}`
                   }
-                  placeholder="Введите пароль..."
+                  placeholder="Введите пароль"
                   {...register('password', {
                     required: 'Это поле является обязательным',
                     minLength: {
