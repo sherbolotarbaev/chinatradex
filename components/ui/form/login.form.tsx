@@ -72,19 +72,17 @@ export default function LoginForm() {
   };
 
   React.useEffect(() => {
-    const checkErrors = () => {
-      if (error) {
-        const errorCode = errorCodes.find((item) => item.code === error);
+    if (error) {
+      const errorCode = errorCodes.find((item) => item.code === error);
 
-        router.replace('/login');
+      router.replace('/login');
 
-        if (errorCode) {
-          alert(errorCode.message);
-        }
+      if (errorCode) {
+        return () => {
+          errorNotification(errorCode.message);
+        };
       }
-    };
-
-    checkErrors();
+    }
   }, [error]);
 
   return (
