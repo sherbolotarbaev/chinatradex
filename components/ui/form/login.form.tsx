@@ -79,7 +79,7 @@ export default function LoginForm() {
         router.replace('/login');
 
         if (errorCode) {
-          errorNotification(errorCode.message);
+          alert(errorCode.message);
         }
       }
     };
