@@ -9,12 +9,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LogOutButton from '../button/logout.button';
 
-import { ArrowSvg } from '@/public/svg';
+import { ArrowSvg, UserSvg, CartSvg } from '@/public/svg';
 import scss from '@/components/scss/account.module.scss';
 
 type TLink = {
   name: string;
   path: string;
+  icon?: React.ReactElement;
   count?: number;
 };
 
@@ -22,10 +23,12 @@ const links: TLink[] = [
   {
     name: 'Профиль',
     path: '/profile',
+    icon: <UserSvg className={scss.icon} />,
   },
   {
     name: 'Корзина',
     path: '/profile/cart',
+    icon: <CartSvg className={scss.icon} />,
     count: 99,
   },
 ];
@@ -100,6 +103,8 @@ export default function Account() {
                       pathname === link.path ? `${scss.link} ${scss.active}` : scss.link
                     }
                   >
+                    {link.icon}
+
                     {link.name}
 
                     {link.count && <span className={scss.count}>{link.count}</span>}

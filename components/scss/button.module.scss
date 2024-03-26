@@ -87,6 +87,12 @@
       background: #fa39284f;
     }
 
+    @media (min-width: 945px) {
+      padding: 0.55rem 0.85rem;
+
+      border-radius: 0;
+    }
+
     @media (max-width: 945px) {
       font-size: 0.785rem;
     }
@@ -110,7 +116,7 @@
 
   .icon,
   .load {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .load {
@@ -159,6 +165,8 @@
   }
 
   &.small {
+    gap: 0.2rem;
+
     padding: 0.25rem 0.625rem;
 
     line-height: 1rem;
@@ -166,6 +174,11 @@
     font-size: 0.785rem;
 
     border-radius: 0.455rem;
+
+    .icon,
+    .load {
+      font-size: 0.8rem;
+    }
   }
 }
 

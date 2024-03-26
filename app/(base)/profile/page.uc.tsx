@@ -11,6 +11,7 @@ import { useUploadPhotoMutation } from '@/redux/api/upload';
 import Image from 'next/image';
 import Button from '@/components/ui/button/button';
 
+import { EditSvg, PhotoSvg } from '@/public/svg';
 import scss from '@/components/scss/profile.module.scss';
 
 export default function ProfileClient() {
@@ -71,10 +72,14 @@ export default function ProfileClient() {
             </div>
 
             <Button
-              width={120}
+              width={128}
               style="white"
               size="small"
               onClick={() => fileRef.current?.click()}
+              icon={{
+                svg: <PhotoSvg />,
+                position: 'left',
+              }}
             >
               Изменить фото
             </Button>
@@ -88,7 +93,16 @@ export default function ProfileClient() {
             <h2 className={scss.title}>
               {me?.firstName} {me?.lastName}
               {me && (
-                <Button width={140} style="white" size="small" disabled>
+                <Button
+                  width={152}
+                  style="white"
+                  size="small"
+                  disabled
+                  icon={{
+                    svg: <EditSvg />,
+                    position: 'left',
+                  }}
+                >
                   Изменить профиль
                 </Button>
               )}

@@ -3,3 +3,8 @@ export { default as ArrowSvg } from './arrow.svg';
 export { default as CloseSvg } from './close.svg';
 export { default as ErrorSvg } from './error.svg';
 export { default as GoogleSvg } from './google.svg';
+export { default as UserSvg } from './user.svg';
+export { default as CartSvg } from './cart.svg';
+export { default as LogoutSvg } from './logout.svg';
+export { default as EditSvg } from './edit.svg';
+export { default as PhotoSvg } from './photo.svg';
