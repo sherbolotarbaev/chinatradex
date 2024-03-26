@@ -76,17 +76,15 @@ export default function LoginForm() {
       if (error) {
         const errorCode = errorCodes.find((item) => item.code === error);
 
+        router.replace('/login');
+
         if (errorCode) {
           errorNotification(errorCode.message);
         }
-
-        router.replace('/login');
       }
     };
 
-    return () => {
-      checkErrors();
-    };
+    checkErrors();
   }, [error]);
 
   return (

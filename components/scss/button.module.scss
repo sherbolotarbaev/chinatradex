@@ -41,14 +41,13 @@
     }
 
     &.white {
+      outline: 0;
+
       color: var(--accent-2);
 
-      &:hover {
-        background: var(--accent-9);
-      }
-
+      &:hover,
       &:active {
-        outline: 0;
+        background: var(--accent-9);
       }
 
       @keyframes loadingAnimation {
