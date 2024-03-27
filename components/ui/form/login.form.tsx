@@ -61,13 +61,17 @@ export default function LoginForm() {
     setValue(name, '');
   };
 
+  const handleError = (msg: string) => {
+    errorNotification(msg);
+    console.error(msg);
+  };
+
   const handleSubmitForm: SubmitHandler<FormData> = async (formData) => {
     try {
       const data = await logIn(formData).unwrap();
       router.push(data.redirectUrl);
     } catch (error: any) {
-      errorNotification(error.data.message || 'Что-то пошло не так');
-      console.error(error);
+      handleError(error.data.message || 'Что-то пошло не так');
     }
   };
 
@@ -79,7 +83,7 @@ export default function LoginForm() {
 
       if (errorCode) {
         return () => {
-          errorNotification(errorCode.message);
+          handleError(errorCode.message);
         };
       }
     }

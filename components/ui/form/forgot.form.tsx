@@ -41,14 +41,18 @@ export default function ForgotForm() {
     setValue(name, '');
   };
 
+  const handleError = (msg: string) => {
+    errorNotification(msg);
+    console.error(msg);
+  };
+
   const handleSubmitForm: SubmitHandler<FormData> = async (formData) => {
     try {
       const data = await forgotPassword(formData).unwrap();
       successNotification(data.message);
       router.push(next === '/' ? '/login' : `/login?next=${next}`);
     } catch (error: any) {
-      errorNotification(error.data.message || 'Что-то пошло не так');
-      console.error(error);
+      handleError(error.data.message || 'Что-то пошло не так');
     }
   };
 

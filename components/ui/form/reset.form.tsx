@@ -41,6 +41,11 @@ export default function ResetForm() {
     setValue(name, '');
   };
 
+  const handleError = (msg: string) => {
+    errorNotification(msg);
+    console.error(msg);
+  };
+
   const handleSubmitForm: SubmitHandler<FormData> = async (formData) => {
     const { password, confirmPassword } = formData;
 
@@ -56,8 +61,7 @@ export default function ResetForm() {
       successNotification(data.message);
       router.push('/login');
     } catch (error: any) {
-      errorNotification(error.data.message || 'Что-то пошло не так');
-      console.error(error);
+      handleError(error.data.message || 'Что-то пошло не так');
     }
   };
 
@@ -75,8 +79,7 @@ export default function ResetForm() {
             <h2 className={scss.title}>Сброс пароля</h2>
 
             <span className={scss.info}>
-              Введите новый безопасный пароль и нажмите сохранить, чтобы обновить
-              пароль.
+              Введите новый безопасный пароль и нажмите сохранить, чтобы обновить пароль.
             </span>
           </div>
 
