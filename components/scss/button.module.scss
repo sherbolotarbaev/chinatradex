@@ -40,6 +40,15 @@
       background: var(--accent-0);
     }
 
+    &.logout {
+      background: #fa39282b;
+
+      &:hover,
+      &:active {
+        background: #fa39282b;
+      }
+    }
+
     &.white {
       outline: 0;
 
@@ -188,6 +197,15 @@
   &:hover,
   &:active {
     background: var(--accent-0);
+  }
+
+  &.logout {
+    background: #fa39282b;
+
+    &:hover,
+    &:active {
+      background: #fa39282b;
+    }
   }
 
   &.white {

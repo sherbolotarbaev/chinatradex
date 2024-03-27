@@ -2,24 +2,28 @@
 
 import React from 'react';
 
+import { useRouter } from 'next/router';
+
 import Button from './button';
 
 import { LogoutSvg } from '@/public/svg';
 
 export default function LogOutButton() {
+  const router = useRouter();
+
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  const handleLoading = () => {
+  const handleLogout = () => {
     setIsLoading(!isLoading);
+    router.push(`${process.env.NEXT_PUBLIC_API_URL}/logout`);
   };
 
   return (
     <Button
-      redirect={`${process.env.NEXT_PUBLIC_API_URL}/logout`}
       style="logout"
-      load={isLoading}
+      load={isLoading && 'Выход из системы...'}
       disabled={isLoading}
-      onClick={handleLoading}
+      onClick={handleLogout}
       icon={{
         svg: <LogoutSvg />,
         position: 'left',

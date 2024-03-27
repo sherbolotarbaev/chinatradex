@@ -86,6 +86,11 @@ export default function Button({
                     fontSize: '1.15rem',
                     fill: 'var(--accent-1)',
                   }
+                : style === 'logout'
+                ? {
+                    fontSize: '1.05rem',
+                    fill: '#e34c41',
+                  }
                 : {
                     fontSize: '1.15rem',
                     fill: 'var(--accent-6)',
@@ -103,6 +108,11 @@ export default function Button({
                 ? {
                     fontSize: '1.15rem',
                     fill: 'var(--accent-1)',
+                  }
+                : style === 'logout'
+                ? {
+                    fontSize: '1.05rem',
+                    fill: '#e34c41',
                   }
                 : {
                     fontSize: '1.15rem',
