@@ -1,0 +1,56 @@
+.notification {
+  width: 100%;
+
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 35px;
+
+  padding: 0.55rem;
+
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  background: var(--bg-main);
+  border-bottom: 0.8px solid var(--accent-7);
+
+  .text {
+    font-size: 1.075rem;
+    font-weight: 600;
+  }
+
+  .clear {
+    padding: 0.085rem;
+
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: var(--accent-8);
+    border: 0.8px solid var(--accent-4);
+    border-radius: 50%;
+
+    font-size: 1.15rem;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    &:hover {
+      background: var(--accent-7);
+    }
+
+    &:active {
+      background: var(--accent-6);
+    }
+
+    @media (max-width: 985px) {
+      cursor: default;
+    }
+  }
+}

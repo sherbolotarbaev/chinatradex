@@ -3,6 +3,7 @@ import { siteConfig } from '@/config/site';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
+import Notifications from '@/components/ui/navbar/notifications';
 import RootLayoutClient from './layout.uc';
 
 import '@/components/scss/globals.scss';
@@ -55,6 +56,7 @@ export default async function RootLayout({ children }: Readonly<Props>) {
       </head>
 
       <body>
+        <Notifications />
         <Suspense fallback={<span>Loading...</span>}>
           <RootLayoutClient>{children}</RootLayoutClient>
         </Suspense>

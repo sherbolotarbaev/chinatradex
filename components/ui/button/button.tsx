@@ -9,36 +9,36 @@ import scss from '@/components/scss/button.module.scss';
 
 interface Props {
   children: React.ReactNode;
-  style?: keyof TStyles;
+  style?: keyof Styles;
   icon?: {
     svg: React.ReactElement;
-    position: keyof TPosition;
+    position: keyof Position;
   };
   disabled?: boolean;
   width?: number;
-  type?: keyof TTypes;
+  type?: keyof Types;
   load?: boolean | string;
   onClick?: () => void;
   redirect?: string;
   open?: string | URL;
   adaptive?: boolean;
   animation?: boolean;
-  size?: TSize;
+  size?: Size;
 }
 
-type TSize = 'small';
+type Size = 'small';
 
-type TPosition = {
+type Position = {
   right: string;
   left: string;
 };
 
-type TStyles = {
+type Styles = {
   white: string;
   logout: string;
 };
 
-type TTypes = {
+type Types = {
   button: string;
   submit: string;
 };
