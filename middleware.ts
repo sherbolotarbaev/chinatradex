@@ -10,41 +10,44 @@ export async function middleware(request: NextRequest) {
   const xff = `${request.headers.get('x-forwarded-for')?.split(',')[0]}`;
   const session = requestCookies.get('session');
   const searchParams = new URLSearchParams(url.searchParams);
-  const next = encodeURIComponent(searchParams.get('next') ?? '/');
+  const next = decodeURIComponent(searchParams.get('next') ?? '/');
 
   if (pathname === '/redirect') {
     return response;
   }
 
+  // console.log(requestCookies);
+
   let user: User | undefined;
 
-  if (session) {
-    try {
-      const headers = new Headers();
+  // if (session && window !== undefined) {
+  try {
+    const headers = new Headers();
 
-      headers.append('Authorization', `Bearer ${encodeURIComponent(session.value)}`);
-      headers.append('baseurl', `${apiUrl}`);
-      headers.append('x-forwarded-for', xff);
+    // headers.append('Authorization', `Bearer ${encodeURIComponent(session.value)}`);
+    headers.append('baseurl', `${apiUrl}`);
+    headers.append('x-forwarded-for', xff);
 
-      const response = await fetch(`${apiUrl}/me`, {
-        method: 'GET',
-        headers,
+    const response = await fetch(`${apiUrl}/me`, {
+      method: 'GET',
+      headers,
+      credentials: 'include',
+    });
+
+    const responseData = await response.json();
+
+    if (responseData.statusCode !== 401) {
+      user = responseData;
+      responseCookies.set('email', responseData.email);
+    } else {
+      requestCookies.getAll().map((cookie) => {
+        if (cookie.name !== 'email') {
+          responseCookies.delete(cookie.name);
+        }
       });
-
-      const responseData = await response.json();
-
-      if (responseData.statusCode !== 401) {
-        user = responseData;
-        responseCookies.set('email', responseData.email);
-      } else {
-        requestCookies.getAll().map((cookie) => {
-          if (cookie.name !== 'email') {
-            responseCookies.delete(cookie.name);
-          }
-        });
-      }
-    } catch (_) {}
-  }
+    }
+  } catch (_) {}
+  // }
 
   const isAuth = user !== undefined;
 
@@ -80,7 +83,7 @@ export async function middleware(request: NextRequest) {
     pathname !== '/password/reset'
   ) {
     const redirectUrl = new URL(
-      pathname !== '/' ? `/login?next=${encodeURIComponent(pathname)}` : '/login',
+      pathname !== '/' ? `/login?next=${decodeURI(pathname)}` : '/login',
       url,
     );
     return NextResponse.redirect(redirectUrl);
