@@ -12,8 +12,6 @@ export async function middleware(request: NextRequest) {
   const searchParams = new URLSearchParams(url.searchParams);
   const next = decodeURIComponent(searchParams.get('next') ?? '/');
 
-  responseCookies.set('page', pathname);
-
   return response;
 }
 
