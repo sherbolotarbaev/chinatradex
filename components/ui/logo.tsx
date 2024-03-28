@@ -17,7 +17,15 @@ interface Props {
   outline?: boolean;
 }
 
-export default function Logo({ src, alt, name, color, width, height, outline }: Props) {
+export default function Logo({
+  src,
+  alt,
+  name,
+  color,
+  width,
+  height,
+  outline,
+}: Readonly<Props>) {
   return (
     <>
       <Link className={scss.logo_wrapper} href="/">

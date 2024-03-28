@@ -10,6 +10,8 @@ import { useUploadPhotoMutation } from '@/redux/api/upload';
 
 import Image from 'next/image';
 import Button from '@/components/ui/button/button';
+import Modal from '@/components/ui/modal';
+import EditForm from '@/components/ui/form/edit.form';
 
 import { EditSvg, PhotoSvg } from '@/public/svg';
 import scss from '@/components/scss/profile.module.scss';
@@ -18,6 +20,12 @@ export default function ProfileClient() {
   const router = useRouter();
 
   const { data: me, isLoading, refetch } = useGetMeQuery();
+
+  const [isEditModalOpen, setIsEditModalOpen] = React.useState<boolean>(false);
+
+  const handleOpenEditModal = () => {
+    setIsEditModalOpen(!isEditModalOpen);
+  };
 
   const fileRef = React.useRef<HTMLInputElement | null>(null);
 
@@ -45,6 +53,12 @@ export default function ProfileClient() {
 
   return (
     <>
+      {me && !isLoading && (
+        <Modal open={isEditModalOpen} handleOpen={handleOpenEditModal}>
+          <EditForm me={me} />
+        </Modal>
+      )}
+
       <section className={scss.wrapper}>
         <div className={scss.container}>
           <input
@@ -97,7 +111,7 @@ export default function ProfileClient() {
                   width={152}
                   style="white"
                   size="small"
-                  disabled
+                  onClick={handleOpenEditModal}
                   icon={{
                     svg: <EditSvg />,
                     position: 'left',

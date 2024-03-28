@@ -42,7 +42,6 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-
   min-width: 350px;
 
   &.disabled {
@@ -66,4 +65,8 @@ body {
   font-family: HarmonyOS Sans, PingFang TC, -apple-system, BlinkMacSystemFont, segoe ui,
     Roboto, Helvetica, Arial, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
   color: var(--accent-1);
+
+  &.disabled {
+    overflow: hidden;
+  }
 }

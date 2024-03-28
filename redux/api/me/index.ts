@@ -9,7 +9,16 @@ const api = index.injectEndpoints({
       }),
       providesTags: ['me'],
     }),
+
+    editMe: build.mutation<EditMeResponse, EditMeRequest>({
+      query: (body) => ({
+        url: '/me',
+        method: 'PATCH',
+        body,
+      }),
+      invalidatesTags: ['me'],
+    }),
   }),
 });
-export const { useGetMeQuery } = api;
+export const { useGetMeQuery, useEditMeMutation } = api;
 export default api;

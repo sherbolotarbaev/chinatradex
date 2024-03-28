@@ -55,7 +55,7 @@ const dropdownList: TListItem[] = [
   },
 ];
 
-export default function NavLinks({ handleOpen }: Props) {
+export default function NavLinks({ handleOpen }: Readonly<Props>) {
   const pathname = usePathname();
 
   if (!links.length) return null;

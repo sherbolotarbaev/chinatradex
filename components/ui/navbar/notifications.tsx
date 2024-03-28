@@ -17,9 +17,9 @@ export default function Notifications() {
     React.useState<Notification | null>(null);
 
   const handleNotificationHide = (uid: string) => {
-    const notificationsString = localStorage.getItem('notifications');
-    if (notificationsString) {
-      const notifications: Notification[] = JSON.parse(notificationsString);
+    const storedNotifications = localStorage.getItem('notifications');
+    if (storedNotifications) {
+      const notifications: Notification[] = JSON.parse(storedNotifications);
       const updatedNotifications = notifications.map((notification) =>
         notification.uid === uid ? { ...notification, show: false } : notification,
       );
@@ -38,7 +38,6 @@ export default function Notifications() {
       );
       if (notifications.length > 0) {
         setCurrentNotification(notifications[notifications.length - 1]);
-        console.log(notifications[notifications.length - 1]);
       }
     } else {
       localStorage.setItem(
@@ -46,7 +45,7 @@ export default function Notifications() {
         JSON.stringify([
           {
             uid: '0aa20647-9d7d-4f33-b7dc-4ebdd071bdf3',
-            text: ['STOP WAR IN PALESTINE 🇵🇸'],
+            text: ['ОСТАНОВИТЕ ВОЙНУ В ПАЛЕСТИНЕ 🇵🇸'],
             style: {
               background: 'rgb(40, 40, 40)',
               color: '#ffffff',

@@ -1,0 +1,115 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  min-width: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  z-index: 99;
+
+  background: rgba(4, 5, 6, 0.519);
+
+  transition: 0.05s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+
+    .box {
+      transform: translateX(0);
+
+      @media (min-width: 585px) {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .box {
+    width: 100%;
+    max-width: 380px;
+    max-height: 500px;
+
+    padding: 0.55rem;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.325rem;
+
+    background: var(--bg-main);
+    border: 1px solid var(--accent-7);
+    border-radius: 0.585rem;
+    box-shadow: 0px 4px 18px rgb(0 0 0 / 4%), 0px 2.025px 7.84688px rgba(0, 0, 0, 0.027),
+      0px 0.8px 2.925px rgb(0 0 0 / 2%), 0px 0.175px 1.04062px rgba(0, 0, 0, 0.013);
+
+    transform: translateX(600px);
+
+    transition: 0.2s;
+
+    @media (min-width: 585px) {
+      transform: scale(0.8);
+    }
+
+    @media (max-width: 585px) {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+
+      border-radius: 0;
+      border: 0;
+    }
+
+    .head {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      .close {
+        padding: 0.25rem;
+        margin-left: auto;
+
+        cursor: pointer;
+
+        font-size: 1.85rem;
+
+        border-radius: 0.325rem;
+
+        transition: 0.25s;
+
+        &:hover {
+          background: var(--accent-8);
+        }
+
+        &:active {
+          background: var(--accent-7);
+        }
+
+        @media (max-width: 585px) {
+          background: var(--accent-8);
+          border: 0.8px solid var(--accent-7);
+
+          cursor: default;
+        }
+      }
+    }
+
+    .content {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+  }
+}
