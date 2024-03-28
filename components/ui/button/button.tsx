@@ -168,7 +168,7 @@ export default function Button({
     <button
       type={type}
       disabled={(typeof load === 'boolean' && load === true) || disabled}
-      style={width ? { maxWidth: width } : undefined}
+      style={width ? { maxWidth: width, minWidth: width } : undefined}
       onClick={handleClick}
       className={buttonClassName}
     >
