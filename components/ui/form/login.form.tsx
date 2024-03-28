@@ -68,7 +68,11 @@ export default function LoginForm() {
 
   const handleSubmitForm: SubmitHandler<FormData> = async (formData) => {
     try {
-      const data = await logIn(formData).unwrap();
+      const data = await logIn({
+        emailOrUsername: formData.emailOrUsername,
+        password: formData.password,
+        next,
+      }).unwrap();
       router.push(data.redirectUrl);
     } catch (error: any) {
       handleError(error.data.message || 'Что-то пошло не так');

@@ -1,6 +1,7 @@
 type LogInRequest = {
   emailOrUsername: string;
   password: string;
+  next: string;
 };
 
 type LogInResponse = {
@@ -12,6 +13,7 @@ type RegisterRequest = {
   lastName: string;
   email: string;
   password: string;
+  next: string;
 };
 
 type RegisterResponse = {

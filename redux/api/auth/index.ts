@@ -6,7 +6,13 @@ const api = index.injectEndpoints({
       query: (body) => ({
         url: '/login',
         method: 'POST',
-        body,
+        body: {
+          emailOrUsername: body.emailOrUsername,
+          password: body.password,
+        },
+        params: {
+          next: body.next,
+        },
       }),
       invalidatesTags: ['auth'],
     }),
@@ -15,7 +21,15 @@ const api = index.injectEndpoints({
       query: (body) => ({
         url: '/register',
         method: 'POST',
-        body,
+        body: {
+          firstName: body.firstName,
+          lastName: body.lastName,
+          email: body.email,
+          password: body.password,
+        },
+        params: {
+          next: body.next,
+        },
       }),
       invalidatesTags: ['auth'],
     }),
