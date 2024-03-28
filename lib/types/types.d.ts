@@ -8,13 +8,10 @@ type User = {
   email: string;
   username: string;
   photo?: string;
-  password: string;
-  resetPasswordToken?: string;
-  verificationToken?: string;
   isActive: boolean;
   isVerified: boolean;
-  createdAt: DateTime;
-  updatedAt: DateTime;
+  createdAt: string;
+  updatedAt: string;
 
   metaData: UserMetaData[];
 };
@@ -26,5 +23,5 @@ type UserMetaData = {
   region?: string;
   country?: string;
   timezone?: string;
-  lastVisit: DateTime;
+  lastVisit: string;
 };

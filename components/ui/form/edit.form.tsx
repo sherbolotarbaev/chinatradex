@@ -161,7 +161,7 @@ export default function EditForm({ me }: Readonly<Props>) {
             </div>
 
             <Button type="submit" load={isLoading} disabled={!isValid || !isDirty}>
-              Сохранить
+              Сохранить изменения
             </Button>
           </div>
         </form>

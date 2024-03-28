@@ -13,7 +13,7 @@ import Button from '@/components/ui/button/button';
 import Modal from '@/components/ui/modal';
 import EditForm from '@/components/ui/form/edit.form';
 
-import { EditSvg, PhotoSvg } from '@/public/svg';
+import { PhotoSvg, EditSvg, EmailSvg, LocationSvg } from '@/public/svg';
 import scss from '@/components/scss/profile.module.scss';
 
 export default function ProfileClient() {
@@ -54,7 +54,11 @@ export default function ProfileClient() {
   return (
     <>
       {me && !isLoading && (
-        <Modal open={isEditModalOpen} handleOpen={handleOpenEditModal}>
+        <Modal
+          title="Редактировать профиль"
+          open={isEditModalOpen}
+          handleOpen={handleOpenEditModal}
+        >
           <EditForm me={me} />
         </Modal>
       )}
@@ -68,6 +72,7 @@ export default function ProfileClient() {
             hidden
             onChange={handleUploadPhoto}
           />
+
           <div className={scss.photo_container}>
             <div
               className={
@@ -98,12 +103,8 @@ export default function ProfileClient() {
               Изменить фото
             </Button>
           </div>
-          <div className={isLoading ? `${scss.text} ${scss.load}` : scss.text}>
-            <span className={scss.location}>
-              {me?.metaData.length &&
-                `${me?.metaData[0].city}, ${me?.metaData[0].country}`}
-            </span>
 
+          <div className={isLoading ? `${scss.text} ${scss.load}` : scss.text}>
             <h2 className={scss.title}>
               {me?.firstName} {me?.lastName}
               {me && (
@@ -122,7 +123,18 @@ export default function ProfileClient() {
               )}
             </h2>
 
-            <span className={scss.email}>{me?.email}</span>
+            <span className={scss.location}>
+              <LocationSvg className={scss.icon} />
+
+              {me?.metaData.length &&
+                `${me?.metaData[0].city}, ${me?.metaData[0].country}`}
+            </span>
+
+            <span className={scss.email}>
+              <EmailSvg className={scss.icon} />
+
+              {me?.email}
+            </span>
           </div>
         </div>
       </section>

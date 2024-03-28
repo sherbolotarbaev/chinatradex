@@ -7,11 +7,12 @@ import scss from '@/components/scss/modal.module.scss';
 
 interface Props {
   children: React.ReactNode;
+  title?: string;
   open: boolean;
   handleOpen: () => void;
 }
 
-export default function Modal({ children, open, handleOpen }: Readonly<Props>) {
+export default function Modal({ children, title, open, handleOpen }: Readonly<Props>) {
   React.useEffect(() => {
     if (open) {
       document.body.classList.add('disabled');
@@ -30,6 +31,8 @@ export default function Modal({ children, open, handleOpen }: Readonly<Props>) {
       >
         <div className={scss.box} onClick={(e) => e.stopPropagation()}>
           <div className={scss.head}>
+            {title && <h2 className={scss.title}>{title}</h2>}
+
             <CloseSvg className={scss.close} onClick={handleOpen} />
           </div>
 

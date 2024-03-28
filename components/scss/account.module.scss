@@ -3,6 +3,9 @@
 
   &.load {
     .user {
+      width: 100%;
+      min-width: 200px;
+
       .display_name,
       .photo_wrapper {
         width: 100%;
@@ -121,15 +124,13 @@
   }
 
   .user {
-    width: 100%;
-    min-width: 200px;
-
     padding: 0.35rem 0.55rem;
 
     cursor: pointer;
 
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.55rem;
 
     border-radius: 0.325rem;
@@ -137,6 +138,9 @@
     .photo_wrapper {
       width: 35px;
       height: 35px;
+
+      min-width: 35px;
+      min-height: 35px;
 
       display: flex;
       align-items: center;

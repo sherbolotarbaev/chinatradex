@@ -65,7 +65,7 @@ export default function NavBar() {
         <div className={scss.right}>
           <Account />
 
-          <Button adaptive redirect="/contact">
+          <Button width={120} adaptive redirect="/contact">
             Связаться
           </Button>
 

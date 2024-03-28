@@ -8,3 +8,5 @@ export { default as CartSvg } from './cart.svg';
 export { default as LogoutSvg } from './logout.svg';
 export { default as EditSvg } from './edit.svg';
 export { default as PhotoSvg } from './photo.svg';
+export { default as EmailSvg } from './email.svg';
+export { default as LocationSvg } from './location.svg';
