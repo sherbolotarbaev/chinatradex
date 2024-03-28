@@ -2,7 +2,7 @@
 
 import NavBar from '@/components/ui/navbar/navbar';
 
-// import SessionProvider from '@/lib/providers/session.provider';
+import SessionProvider from '@/lib/providers/session.provider';
 import ReduxProvider from '@/redux/provider';
 
 import { Toaster } from 'sonner';
@@ -17,9 +17,7 @@ export default function RootLayoutClient({ children }: Readonly<Props>) {
       <ReduxProvider>
         <NavBar />
 
-        {/* <SessionProvider> */}
-        {children}
-        {/* </SessionProvider> */}
+        <SessionProvider>{children}</SessionProvider>
       </ReduxProvider>
 
       <Toaster richColors />
