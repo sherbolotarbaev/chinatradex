@@ -57,6 +57,7 @@ export default async function RootLayout({ children }: Readonly<Props>) {
 
       <body>
         <Notifications />
+
         <Suspense fallback={<span>Loading...</span>}>
           <RootLayoutClient>{children}</RootLayoutClient>
         </Suspense>

@@ -45,10 +45,10 @@ export default function Notifications() {
         JSON.stringify([
           {
             uid: '0aa20647-9d7d-4f33-b7dc-4ebdd071bdf3',
-            text: ['ОСТАНОВИТЕ ВОЙНУ В ПАЛЕСТИНЕ 🇵🇸'],
+            text: ['ПРЕКРАТИТЕ ВОЙНУ В ПАЛЕСТИНЕ 🇵🇸'],
             style: {
-              background: 'rgb(40, 40, 40)',
-              color: '#ffffff',
+              background: 'var(--bg-main)',
+              color: 'var(--accent-1)',
             },
             show: true,
           },

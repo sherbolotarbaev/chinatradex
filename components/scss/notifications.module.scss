@@ -19,34 +19,36 @@
   border-bottom: 0.8px solid var(--accent-7);
 
   .text {
-    font-size: 1.075rem;
+    font-size: 1rem;
     font-weight: 600;
   }
 
   .clear {
-    padding: 0.085rem;
+    padding: 0.05rem;
 
     position: absolute;
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
 
-    background: var(--accent-8);
-    border: 0.8px solid var(--accent-4);
-    border-radius: 50%;
+    border: 0.8px solid var(--accent-7);
+    border-radius: 0.325rem;
+    outline: 1.85px solid transparent;
 
-    font-size: 1.15rem;
+    font-size: 1.35rem;
 
     cursor: pointer;
 
     transition: 0.25s;
 
     &:hover {
-      background: var(--accent-7);
+      background: var(--accent-8);
     }
 
     &:active {
-      background: var(--accent-6);
+      background: var(--accent-7);
+
+      outline-color: var(--blue-color);
     }
 
     @media (max-width: 985px) {
