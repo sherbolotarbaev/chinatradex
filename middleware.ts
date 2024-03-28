@@ -10,7 +10,7 @@ export async function middleware(request: NextRequest) {
   const xff = `${request.headers.get('x-forwarded-for')?.split(',')[0]}`;
   const session = requestCookies.get('session');
   const searchParams = new URLSearchParams(url.searchParams);
-  const next = decodeURIComponent(searchParams.get('next') ?? '/');
+  const next = encodeURIComponent(searchParams.get('next') ?? '/');
 
   if (pathname === '/redirect') {
     return response;
