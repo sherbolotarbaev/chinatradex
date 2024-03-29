@@ -51,13 +51,13 @@ export default function HomeClient() {
                   position: 'left',
                 }}
               >
-                изменить текст
+                Изменить текст
               </Button>
             )}
           </h2>
         </div>
 
-        <Modal open={show} handleOpen={handleShow}>
+        <Modal title="Изменить текст" open={show} handleOpen={handleShow}>
           {show && (
             <textarea onChange={handleChangeText} defaultValue={content}></textarea>
           )}
