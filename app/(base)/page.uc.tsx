@@ -6,6 +6,7 @@ import Button from '@/components/ui/button';
 
 import { EditSvg } from '@/public/svg';
 import scss from '@/components/scss/page.module.scss';
+import Modal from '@/components/ui/modal';
 
 export default function HomeClient() {
   const [content, setContent] = React.useState<string | undefined>();
@@ -56,7 +57,11 @@ export default function HomeClient() {
           </h2>
         </div>
 
-        {show && <textarea onChange={handleChangeText} defaultValue={content}></textarea>}
+        <Modal open={show} handleOpen={handleShow}>
+          {show && (
+            <textarea onChange={handleChangeText} defaultValue={content}></textarea>
+          )}
+        </Modal>
       </section>
     </>
   );
