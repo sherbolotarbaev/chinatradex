@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+::selection {
+  background: #47a3f3;
+  color: #fefefe;
+}
+
 :root {
   --bg-main: #fff;
   --blue-bg: #669df645;
