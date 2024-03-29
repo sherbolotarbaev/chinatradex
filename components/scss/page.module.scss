@@ -45,10 +45,15 @@
     border-radius: 0.325rem;
     outline: 1.85px solid transparent;
 
-    font-size: 1.25rem;
+    font-size: 1.05rem;
 
     &:focus {
       outline-color: var(--blue-color);
+    }
+
+    @media (max-width: 585px) {
+      min-height: 850px;
+      max-height: 850px;
     }
   }
 }
