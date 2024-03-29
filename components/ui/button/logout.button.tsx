@@ -4,7 +4,7 @@ import React from 'react';
 
 import { useRouter } from 'next/navigation';
 
-import Button from './button';
+import Button from '@/components/ui/button';
 
 import { LogoutSvg } from '@/public/svg';
 

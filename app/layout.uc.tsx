@@ -1,6 +1,6 @@
 'use client';
 
-import NavBar from '@/components/ui/navbar/navbar';
+import NavBar from '@/components/ui/navbar';
 
 import SessionProvider from '@/lib/providers/session.provider';
 import ReduxProvider from '@/redux/provider';

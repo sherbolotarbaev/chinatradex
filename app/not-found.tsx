@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Button from '@/components/ui/button/button';
+import Button from '@/components/ui/button';
 
 import scss from '@/components/scss/not-found.module.scss';
 

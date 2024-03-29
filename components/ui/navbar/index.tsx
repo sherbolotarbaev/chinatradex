@@ -8,7 +8,7 @@ import { useGetMeQuery } from '@/redux/api/me';
 import NavLinks from './navlinks';
 import Link from 'next/link';
 import Logo from '@/components/ui/logo';
-import Button from '@/components/ui/button/button';
+import Button from '@/components/ui/button';
 import Account from './account';
 
 import websiteLogo from '@/public/logo.png';

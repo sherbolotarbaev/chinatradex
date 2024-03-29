@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 
-import Button from './button';
+import Button from '@/components/ui/button';
 
 import { GoogleSvg } from '@/public/svg';
 

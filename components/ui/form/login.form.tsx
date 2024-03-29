@@ -9,7 +9,7 @@ import { errorNotification } from '@/lib/notification';
 import { useLogInMutation } from '@/redux/api/auth';
 
 import Link from 'next/link';
-import Button from '@/components/ui/button/button';
+import Button from '@/components/ui/button';
 import GoogleOAuthButton from '@/components/ui/button/google-oauth.button';
 
 import { CloseSvg, ErrorSvg } from '@/public/svg';

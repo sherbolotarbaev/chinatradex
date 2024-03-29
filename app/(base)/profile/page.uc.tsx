@@ -9,7 +9,7 @@ import { useGetMeQuery } from '@/redux/api/me';
 import { useUploadPhotoMutation } from '@/redux/api/upload';
 
 import Image from 'next/image';
-import Button from '@/components/ui/button/button';
+import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
 import EditForm from '@/components/ui/form/edit.form';
 

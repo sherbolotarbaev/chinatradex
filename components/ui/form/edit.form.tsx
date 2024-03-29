@@ -8,7 +8,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { successNotification, errorNotification } from '@/lib/notification';
 import { useEditMeMutation, useGetMeQuery } from '@/redux/api/me';
 
-import Button from '@/components/ui/button/button';
+import Button from '@/components/ui/button';
 
 import { CloseSvg, ErrorSvg } from '@/public/svg';
 import scss from '@/components/scss/form.module.scss';

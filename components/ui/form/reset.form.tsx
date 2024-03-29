@@ -9,7 +9,7 @@ import { successNotification, errorNotification } from '@/lib/notification';
 import { useResetPasswordMutation } from '@/redux/api/auth';
 
 import Link from 'next/link';
-import Button from '@/components/ui/button/button';
+import Button from '@/components/ui/button';
 
 import { CloseSvg, ErrorSvg } from '@/public/svg';
 import scss from '@/components/scss/form.module.scss';
