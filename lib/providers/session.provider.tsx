@@ -15,24 +15,24 @@ export default function SessionProvider({ children }: Readonly<Props>) {
 
   const { data: me, isLoading } = useGetMeQuery();
 
-  const isAuth = me && !isLoading;
+  const isAuth = me !== undefined && !isLoading;
 
   switch (pathname) {
     case '/login':
       if (isAuth) {
-        redirect(`${decodeURIComponent(next)}`);
+        redirect(`${next}`);
       }
       break;
 
     case '/password/forgot':
       if (isAuth) {
-        redirect(`${decodeURIComponent(next)}`);
+        redirect(`${next}`);
       }
       break;
 
     case '/password/reset':
       if (isAuth) {
-        redirect(`${decodeURIComponent(next)}`);
+        redirect(`${next}`);
       }
       break;
 
