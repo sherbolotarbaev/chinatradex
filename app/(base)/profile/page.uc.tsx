@@ -59,7 +59,7 @@ export default function ProfileClient() {
           open={isEditModalOpen}
           handleOpen={handleOpenEditModal}
         >
-          <EditForm me={me} />
+          <EditForm me={me} handleOpen={handleOpenEditModal} />
         </Modal>
       )}
 

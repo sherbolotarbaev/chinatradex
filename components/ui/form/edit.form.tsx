@@ -15,6 +15,7 @@ import scss from '@/components/scss/form.module.scss';
 
 interface Props {
   me: User;
+  handleOpen: () => void;
 }
 
 type FormData = {
@@ -22,7 +23,7 @@ type FormData = {
   lastName: string;
 };
 
-export default function EditForm({ me }: Readonly<Props>) {
+export default function EditForm({ me, handleOpen }: Readonly<Props>) {
   const router = useRouter();
 
   const {
@@ -59,6 +60,7 @@ export default function EditForm({ me }: Readonly<Props>) {
         .unwrap()
         .then(() => refetch());
       router.refresh();
+      handleOpen();
       successNotification('Профиль успешно обновлен');
     } catch (error: any) {
       handleError(error.data.message || 'Что-то пошло не так');
