@@ -2,16 +2,14 @@
 
 import LoginForm from '@/components/ui/form/login.form';
 
-import scss from '@/components/scss/page.module.scss';
+import scss from '@/components/scss/auth.module.scss';
 
 export default function LoginClient() {
   return (
     <>
-      <section className={scss.wrapper}>
-        <div className={scss.container}>
-          <LoginForm />
-        </div>
-      </section>
+      <div className={scss.container}>
+        <LoginForm />
+      </div>
     </>
   );
 }

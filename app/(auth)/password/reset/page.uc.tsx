@@ -2,16 +2,14 @@
 
 import ResetForm from '@/components/ui/form/reset.form';
 
-import scss from '@/components/scss/page.module.scss';
+import scss from '@/components/scss/auth.module.scss';
 
 export default function ResetClient() {
   return (
     <>
-      <section className={scss.wrapper}>
-        <div className={scss.container}>
-          <ResetForm />
-        </div>
-      </section>
+      <div className={scss.container}>
+        <ResetForm />
+      </div>
     </>
   );
 }
