@@ -7,6 +7,8 @@ import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { successNotification, errorNotification } from '@/lib/notification';
 import { useEditMeMutation, useGetMeQuery } from '@/redux/api/me';
+import { CountrySelector, usePhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 
 import Button from '@/components/ui/button';
 
@@ -21,6 +23,7 @@ interface Props {
 type FormData = {
   firstName: string;
   lastName: string;
+  phone: string;
 };
 
 export default function EditForm({ me, handleOpen }: Readonly<Props>) {
@@ -36,6 +39,7 @@ export default function EditForm({ me, handleOpen }: Readonly<Props>) {
     defaultValues: {
       firstName: me.firstName,
       lastName: me.lastName,
+      phone: me.phone ? me.phone : undefined,
     },
   });
 
@@ -44,6 +48,13 @@ export default function EditForm({ me, handleOpen }: Readonly<Props>) {
 
   const firstName = watch('firstName');
   const lastName = watch('lastName');
+  const phone = watch('phone');
+
+  const phoneInput = usePhoneInput({
+    defaultCountry: 'kg',
+    value: phone,
+    onChange: (data) => setValue('phone', data.phone),
+  });
 
   const handleClearInput = (name: keyof FormData) => {
     setValue(name, '');
@@ -155,6 +166,64 @@ export default function EditForm({ me, handleOpen }: Readonly<Props>) {
                   onClick={() => handleClearInput('lastName')}
                   style={
                     !isLoading && lastName && lastName.length > 0
+                      ? { fontSize: '1.1rem', fill: 'var(--accent-8)' }
+                      : { display: 'none' }
+                  }
+                />
+              </div>
+            </div>
+
+            <div className={scss.input_container}>
+              {errors.phone ? (
+                <span className={scss.error}>
+                  <ErrorSvg className={scss.icon} />
+                  {errors.phone.message}
+                </span>
+              ) : (
+                <span className={scss.label}>Номер телефона</span>
+              )}
+
+              <div className={scss.input_wrapper}>
+                <CountrySelector
+                  selectedCountry={phoneInput.country.iso2}
+                  onSelect={(country) => phoneInput.setCountry(country.iso2)}
+                  renderButtonWrapper={({ children, rootProps }) => (
+                    <button
+                      {...rootProps}
+                      type="button"
+                      className={
+                        isLoading
+                          ? `${scss.country_selector} ${scss.load}`
+                          : scss.country_selector
+                      }
+                    >
+                      {children}
+                    </button>
+                  )}
+                />
+
+                <input
+                  type="tel"
+                  disabled={isLoading}
+                  className={isLoading ? `${scss.input} ${scss.load}` : scss.input}
+                  placeholder="Введите номер телефона"
+                  {...register('phone', {
+                    required: 'Это поле является обязательным',
+                    pattern: {
+                      value:
+                        /^\+?\d{1,3}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
+                      message: 'Неверный номер телефона',
+                    },
+                    value: phoneInput.phone,
+                    onChange: (e) => phoneInput.handlePhoneValueChange(e),
+                  })}
+                />
+
+                <CloseSvg
+                  className={scss.clear}
+                  onClick={() => handleClearInput('phone')}
+                  style={
+                    !isLoading && phone && phone.length > 0
                       ? { fontSize: '1.1rem', fill: 'var(--accent-8)' }
                       : { display: 'none' }
                   }

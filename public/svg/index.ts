@@ -10,3 +10,4 @@ export { default as EditSvg } from './edit.svg';
 export { default as PhotoSvg } from './photo.svg';
 export { default as EmailSvg } from './email.svg';
 export { default as LocationSvg } from './location.svg';
+export { default as PhoneSvg } from './phone.svg';

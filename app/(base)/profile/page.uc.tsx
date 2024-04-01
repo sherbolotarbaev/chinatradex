@@ -13,7 +13,7 @@ import Button from '@/components/ui/button';
 import Modal from '@/components/ui/modal';
 import EditForm from '@/components/ui/form/edit.form';
 
-import { PhotoSvg, EditSvg, EmailSvg, LocationSvg } from '@/public/svg';
+import { PhotoSvg, EditSvg, EmailSvg, LocationSvg, PhoneSvg } from '@/public/svg';
 import scss from '@/components/scss/profile.module.scss';
 
 export default function ProfileClient() {
@@ -123,18 +123,27 @@ export default function ProfileClient() {
               )}
             </h2>
 
-            <span className={scss.location}>
-              <LocationSvg className={scss.icon} />
+            {me?.metaData.length && (
+              <span className={scss.location}>
+                <LocationSvg className={scss.icon} />
 
-              {me?.metaData.length &&
-                `${me?.metaData[0].city}, ${me?.metaData[0].country}`}
-            </span>
+                {`${me?.metaData[0].city}, ${me?.metaData[0].country}`}
+              </span>
+            )}
 
-            <span className={scss.email}>
-              <EmailSvg className={scss.icon} />
+            {me?.email && (
+              <span className={scss.email}>
+                <EmailSvg className={scss.icon} />
+                {me.email}
+              </span>
+            )}
 
-              {me?.email}
-            </span>
+            {me?.phone && (
+              <span className={scss.email}>
+                <PhoneSvg className={scss.icon} />
+                {me.phone}
+              </span>
+            )}
           </div>
         </div>
       </section>

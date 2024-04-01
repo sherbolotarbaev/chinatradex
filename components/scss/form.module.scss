@@ -105,6 +105,10 @@
 
           position: relative;
 
+          display: flex;
+          align-items: center;
+          gap: 0.35rem;
+
           .input {
             width: 100%;
 
@@ -158,6 +162,19 @@
               &::placeholder {
                 letter-spacing: normal;
               }
+            }
+          }
+
+          .country_selector {
+            padding: 0.45rem 0.55rem;
+
+            background: var(--accent-9);
+            border: 0.8px solid var(--accent-6);
+            border-radius: 0.675rem;
+            outline: 1.85px solid transparent;
+
+            &:active {
+              outline-color: var(--blue-color);
             }
           }
 

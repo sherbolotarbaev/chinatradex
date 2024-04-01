@@ -29,6 +29,9 @@ dependencies:
   react-hook-form:
     specifier: ^7.51.1
     version: 7.51.1(react@18.0.0)
+  react-international-phone:
+    specifier: ^4.2.6
+    version: 4.2.6(react@18.0.0)
   react-redux:
     specifier: ^9.1.0
     version: 9.1.0(@types/react@18.0.0)(react@18.0.0)(redux@5.0.1)
@@ -3940,6 +3943,14 @@ packages:
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 18.0.0
+    dev: false
+
+  /react-international-phone@4.2.6(react@18.0.0):
+    resolution: {integrity: sha512-El/ZVYmov5uGuk07nrfxe7M3/4Y8HhA9c3aCpAwilbPU8DekISwNSZMplqxzvxS+TIavIh28ZMDDx1u/4GqULg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.0.0
     dev: false
