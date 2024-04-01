@@ -1,3 +1,7 @@
+'use client';
+
+import React from 'react';
+
 import { siteConfig } from '@/config/site';
 
 import Logo from '@/components/ui/logo';
@@ -10,6 +14,14 @@ interface Props {
 }
 
 export default async function AuthLayout({ children }: Readonly<Props>) {
+  React.useEffect(() => {
+    document.body.classList.add('disabled');
+
+    return () => {
+      document.body.classList.remove('disabled');
+    };
+  }, []);
+
   return (
     <>
       <section className={scss.wrapper}>
