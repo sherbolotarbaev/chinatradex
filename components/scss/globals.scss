@@ -74,4 +74,29 @@ body {
   &.disabled {
     overflow: hidden;
   }
+
+  .react-international-phone-country-selector-dropdown {
+    padding: 0.55rem;
+
+    background: var(--bg-main);
+    border-radius: 0.585rem;
+    border: 0.8px solid var(--accent-7);
+    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px,
+      rgba(15, 15, 15, 0.2) 0px 9px 24px;
+
+    .react-international-phone-country-selector-dropdown__list-item {
+      padding: 0.55rem;
+
+      border-radius: 0.325rem;
+      outline: 1.85px solid transparent;
+
+      &:hover {
+        background: var(--accent-9);
+      }
+
+      &:active {
+        outline-color: var(--blue-color);
+      }
+    }
+  }
 }

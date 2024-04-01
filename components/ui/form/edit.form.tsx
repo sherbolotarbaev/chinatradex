@@ -34,7 +34,7 @@ export default function EditForm({ me, handleOpen }: Readonly<Props>) {
     handleSubmit,
     setValue,
     watch,
-    formState: { errors, isValid, isDirty },
+    formState: { errors, isValid },
   } = useForm<FormData>({
     defaultValues: {
       firstName: me.firstName,
@@ -215,7 +215,9 @@ export default function EditForm({ me, handleOpen }: Readonly<Props>) {
                       message: 'Неверный номер телефона',
                     },
                     value: phoneInput.phone,
-                    onChange: (e) => phoneInput.handlePhoneValueChange(e),
+                    onChange: (e) => {
+                      phoneInput.handlePhoneValueChange(e);
+                    },
                   })}
                 />
 
@@ -231,7 +233,7 @@ export default function EditForm({ me, handleOpen }: Readonly<Props>) {
               </div>
             </div>
 
-            <Button type="submit" load={isLoading} disabled={!isValid || !isDirty}>
+            <Button type="submit" load={isLoading} disabled={!isValid}>
               Сохранить изменения
             </Button>
           </div>

@@ -123,23 +123,20 @@ export default function ProfileClient() {
               )}
             </h2>
 
-            {me?.metaData.length && (
-              <span className={scss.location}>
-                <LocationSvg className={scss.icon} />
+            <span className={scss.location}>
+              <LocationSvg className={scss.icon} />
 
-                {`${me?.metaData[0].city}, ${me?.metaData[0].country}`}
-              </span>
-            )}
+              {me?.metaData.length &&
+                `${me?.metaData[0].city}, ${me?.metaData[0].country}`}
+            </span>
 
-            {me?.email && (
-              <span className={scss.email}>
-                <EmailSvg className={scss.icon} />
-                {me.email}
-              </span>
-            )}
+            <span className={scss.email}>
+              <EmailSvg className={scss.icon} />
+              {me?.email}
+            </span>
 
             {me?.phone && (
-              <span className={scss.email}>
+              <span className={scss.phone}>
                 <PhoneSvg className={scss.icon} />
                 {me.phone}
               </span>
