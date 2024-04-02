@@ -47,10 +47,6 @@ export default function ProfileClient() {
     }
   };
 
-  if (!me && !isLoading) {
-    router.push('/login?next=/profile');
-  }
-
   return (
     <>
       {me && !isLoading && (
