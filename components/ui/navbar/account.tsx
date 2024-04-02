@@ -77,8 +77,9 @@ export default function Account() {
               src={me?.photo || 'https://cdn-icons-png.freepik.com/512/552/552721.png'}
               alt={`${me.firstName} ${me.lastName}`}
               className={scss.photo}
-              width={40}
-              height={40}
+              width={250}
+              height={250}
+              loading="lazy"
             />
           </div>
 

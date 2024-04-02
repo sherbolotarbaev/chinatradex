@@ -20,7 +20,9 @@ type RegisterResponse = {
   redirectUrl: string;
 };
 
-type LogOutRequest = void;
+type LogOutRequest = {
+  next: string;
+};
 
 type LogOutResponse = {
   redirectUrl: string;

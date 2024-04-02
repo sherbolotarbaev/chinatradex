@@ -38,6 +38,9 @@ const api = index.injectEndpoints({
       query: (body) => ({
         url: '/logout',
         method: 'POST',
+        params: {
+          next: body.next,
+        },
       }),
       invalidatesTags: ['auth'],
     }),

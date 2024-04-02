@@ -16,10 +16,14 @@ import EditForm from '@/components/ui/form/edit.form';
 import { PhotoSvg, EditSvg, EmailSvg, LocationSvg, PhoneSvg } from '@/public/svg';
 import scss from '@/components/scss/profile.module.scss';
 
-export default function ProfileClient() {
+interface Props {
+  me?: User;
+}
+
+export default function ProfileClient({ me }: Readonly<Props>) {
   const router = useRouter();
 
-  const { data: me, isLoading, refetch } = useGetMeQuery();
+  const { refetch } = useGetMeQuery();
 
   const [isEditModalOpen, setIsEditModalOpen] = React.useState<boolean>(false);
 
@@ -47,17 +51,17 @@ export default function ProfileClient() {
     }
   };
 
+  if (!me) return null;
+
   return (
     <>
-      {me && !isLoading && (
-        <Modal
-          title="Редактировать профиль"
-          open={isEditModalOpen}
-          handleOpen={handleOpenEditModal}
-        >
-          <EditForm me={me} handleOpen={handleOpenEditModal} />
-        </Modal>
-      )}
+      <Modal
+        title="Редактировать профиль"
+        open={isEditModalOpen}
+        handleOpen={handleOpenEditModal}
+      >
+        <EditForm me={me} handleOpen={handleOpenEditModal} />
+      </Modal>
 
       <section className={scss.wrapper}>
         <div className={scss.container}>
@@ -72,17 +76,16 @@ export default function ProfileClient() {
           <div className={scss.photo_container}>
             <div
               className={
-                isUploading || isLoading
-                  ? `${scss.photo_wrapper} ${scss.load}`
-                  : scss.photo_wrapper
+                isUploading ? `${scss.photo_wrapper} ${scss.load}` : scss.photo_wrapper
               }
             >
               <Image
-                src={me?.photo || 'https://cdn-icons-png.freepik.com/512/552/552721.png'}
-                alt={`${me?.firstName} ${me?.lastName}`}
+                src={me.photo || 'https://cdn-icons-png.freepik.com/512/552/552721.png'}
+                alt={`${me.firstName} ${me.lastName}`}
                 className={scss.photo}
-                width={96}
-                height={96}
+                width={500}
+                height={500}
+                loading="lazy"
               />
             </div>
 
@@ -100,38 +103,35 @@ export default function ProfileClient() {
             </Button>
           </div>
 
-          <div className={isLoading ? `${scss.text} ${scss.load}` : scss.text}>
+          <div className={scss.text}>
             <h2 className={scss.title}>
-              {me?.firstName} {me?.lastName}
-              {me && (
-                <Button
-                  width={152}
-                  style="white"
-                  size="small"
-                  onClick={handleOpenEditModal}
-                  icon={{
-                    svg: <EditSvg />,
-                    position: 'left',
-                  }}
-                >
-                  Изменить профиль
-                </Button>
-              )}
+              {me.firstName} {me.lastName}
+              <Button
+                width={152}
+                style="white"
+                size="small"
+                onClick={handleOpenEditModal}
+                icon={{
+                  svg: <EditSvg />,
+                  position: 'left',
+                }}
+              >
+                Изменить профиль
+              </Button>
             </h2>
 
             <span className={scss.location}>
               <LocationSvg className={scss.icon} />
 
-              {me?.metaData.length &&
-                `${me?.metaData[0].city}, ${me?.metaData[0].country}`}
+              {me.metaData.length && `${me.metaData[0].city}, ${me.metaData[0].country}`}
             </span>
 
             <span className={scss.email}>
               <EmailSvg className={scss.icon} />
-              {me?.email}
+              {me.email}
             </span>
 
-            {me?.phone && (
+            {me.phone && (
               <span className={scss.phone}>
                 <PhoneSvg className={scss.icon} />
                 {me.phone}

@@ -86,57 +86,6 @@
       flex-direction: column;
       gap: 0.05rem;
 
-      &.load {
-        width: 100%;
-
-        gap: 0.55rem;
-
-        .title,
-        .email,
-        .location {
-          width: 100%;
-          max-width: 250px;
-
-          padding: 0.7rem;
-
-          background: linear-gradient(90deg, #e7e7e7, #ffffff, #e4e4e4);
-          border-radius: 0.235rem;
-          background-size: 500% 500%;
-
-          animation: loadingAnimation 2s linear infinite;
-
-          @keyframes loadingAnimation {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
-          }
-        }
-
-        .email,
-        .location,
-        .phone {
-          max-width: 200px;
-
-          padding: 0.45rem;
-        }
-
-        .location {
-          max-width: 120px;
-
-          padding: 0.4rem;
-        }
-
-        .phone {
-          max-width: 170px;
-        }
-      }
-
       .title {
         width: 100%;
 

@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import axios from 'axios';
 
 const instance = axios.create({
@@ -6,8 +7,14 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-// instance.interceptors.request.use(async (config) => {
-//   return config;
-// });
+instance.interceptors.request.use(async (config) => {
+  const session = cookies().get('session');
+
+  if (session) {
+    config.headers.set('Authorization', `Bearer ${encodeURIComponent(session.value)}`);
+  }
+
+  return config;
+});
 
 export default instance;
