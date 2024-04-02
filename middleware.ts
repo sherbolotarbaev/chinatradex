@@ -22,8 +22,6 @@ export async function middleware(request: NextRequest) {
         maxAge: 30 * 60 * 1000, // 30 minutes
       });
     }
-
-    return response;
   }
 
   let user: User | undefined;
