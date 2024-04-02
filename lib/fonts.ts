@@ -1,3 +1,3 @@
-import { Montserrat } from 'next/font/google';
+import { Unbounded } from 'next/font/google';
 
-export const montserrat = Montserrat({ subsets: ['latin'] });
+export const unbounded = Unbounded({ subsets: ['latin'] });

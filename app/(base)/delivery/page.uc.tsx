@@ -1,5 +1,6 @@
 'use client';
 
+import { unbounded } from '@/lib/fonts';
 import scss from '@/components/scss/page.module.scss';
 
 export default function DeliveryClient() {
@@ -7,7 +8,9 @@ export default function DeliveryClient() {
     <>
       <section className={scss.wrapper}>
         <div className={scss.container}>
-          <h2 className={scss.title}>Доставка 🚚</h2>
+          <h2 className={scss.title} style={unbounded.style}>
+            Доставка 🚚
+          </h2>
         </div>
       </section>
     </>
