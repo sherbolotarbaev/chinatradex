@@ -3,14 +3,6 @@ import { BaseQueryFn, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/r
 const baseQuery = fetchBaseQuery({
   baseUrl: `${process.env.NEXT_PUBLIC_API_URL}`,
   prepareHeaders: (headers) => {
-    const session = document.cookie
-      .split(';')
-      .find((cookie) => cookie.trim().startsWith('session='));
-
-    if (session) {
-      headers.set('Authorization', `Bearer ${session.split('=')[1]}`);
-    }
-
     return headers;
   },
   credentials: 'include',
