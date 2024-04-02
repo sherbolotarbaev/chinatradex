@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { successNotification, errorNotification } from '@/lib/notification';
 import { useForgotPasswordMutation } from '@/redux/api/auth';
+import { getCookie } from 'cookies-next';
 
 import Link from 'next/link';
 import Button from '@/components/ui/button';
@@ -55,6 +56,18 @@ export default function ForgotForm() {
       handleError(error.data.message || 'Что-то пошло не так');
     }
   };
+
+  React.useEffect(() => {
+    const getCookieEmail = async () => {
+      const cookieEmail = getCookie('email');
+
+      if (cookieEmail) {
+        setValue('email', cookieEmail);
+      }
+    };
+
+    getCookieEmail();
+  }, [setValue, getCookie]);
 
   return (
     <>
