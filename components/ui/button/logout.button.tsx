@@ -4,6 +4,9 @@ import React from 'react';
 
 import { useRouter } from 'next/navigation';
 
+import { errorNotification } from '@/lib/notification';
+import { useLogOutMutation } from '@/redux/api/auth';
+
 import Button from '@/components/ui/button';
 
 import { LogoutSvg } from '@/public/svg';
@@ -11,11 +14,20 @@ import { LogoutSvg } from '@/public/svg';
 export default function LogOutButton() {
   const router = useRouter();
 
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [logOut, { isLoading }] = useLogOutMutation();
 
-  const handleLogout = () => {
-    setIsLoading(!isLoading);
-    router.push(`${process.env.NEXT_PUBLIC_API_URL}/logout`);
+  const handleError = (msg: string) => {
+    errorNotification(msg);
+    console.error(msg);
+  };
+
+  const handleLogout = async () => {
+    try {
+      const data = await logOut().unwrap();
+      router.push(data.redirectUrl);
+    } catch (error: any) {
+      handleError(error.data.message || 'Что-то пошло не так');
+    }
   };
 
   return (

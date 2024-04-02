@@ -20,6 +20,12 @@ type RegisterResponse = {
   redirectUrl: string;
 };
 
+type LogOutRequest = void;
+
+type LogOutResponse = {
+  redirectUrl: string;
+};
+
 type EmailVerificationRequest = {
   code: string;
 };

@@ -34,6 +34,14 @@ const api = index.injectEndpoints({
       invalidatesTags: ['auth'],
     }),
 
+    logOut: build.mutation<LogOutResponse, LogOutRequest>({
+      query: () => ({
+        url: '/logout',
+        method: 'POST',
+      }),
+      invalidatesTags: ['auth'],
+    }),
+
     emailVerification: build.mutation<
       EmailVerificationResponse,
       EmailVerificationRequest
@@ -69,6 +77,7 @@ const api = index.injectEndpoints({
 export const {
   useLogInMutation,
   useSignupMutation,
+  useLogOutMutation,
   useEmailVerificationMutation,
   useForgotPasswordMutation,
   useResetPasswordMutation,
