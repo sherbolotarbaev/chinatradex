@@ -35,7 +35,7 @@ const api = index.injectEndpoints({
     }),
 
     logOut: build.mutation<LogOutResponse, LogOutRequest>({
-      query: () => ({
+      query: (body) => ({
         url: '/logout',
         method: 'POST',
       }),
