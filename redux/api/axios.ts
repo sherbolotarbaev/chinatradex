@@ -11,7 +11,7 @@ instance.interceptors.request.use(async (config) => {
   const session = cookies().get('session');
 
   if (session) {
-    config.headers.set('Authorization', `Bearer ${encodeURIComponent(session.value)}`);
+    config.headers.set('authorization', `Bearer ${encodeURIComponent(session.value)}`);
   }
 
   return config;
