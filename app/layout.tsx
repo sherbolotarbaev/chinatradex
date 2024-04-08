@@ -1,7 +1,8 @@
-import { siteConfig } from '@/config/site';
+import Head from 'next/head';
+import type { Metadata } from 'next';
 
 import { Suspense } from 'react';
-import type { Metadata } from 'next';
+import { siteConfig } from '@/config/site';
 
 import Notifications from '@/components/ui/navbar/notifications';
 import RootLayoutClient from './layout.uc';
@@ -47,13 +48,13 @@ interface Props {
 export default async function RootLayout({ children }: Readonly<Props>) {
   return (
     <html lang="en">
-      <head>
+      <Head>
         <meta charSet="UTF-8" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-      </head>
+      </Head>
 
       <body>
         <Notifications />

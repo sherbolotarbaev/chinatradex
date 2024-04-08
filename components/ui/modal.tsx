@@ -23,13 +23,17 @@ export default function Modal({ children, title, open, handleOpen }: Readonly<Pr
     };
   }, [open]);
 
+  const handleContentClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       <div
         className={open ? `${scss.wrapper} ${scss.active}` : scss.wrapper}
         onClick={handleOpen}
       >
-        <div className={scss.box} onClick={(e) => e.stopPropagation()}>
+        <div className={scss.box} onClick={handleContentClick}>
           <div className={scss.head}>
             {title && <h2 className={scss.title}>{title}</h2>}
 
