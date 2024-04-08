@@ -74,6 +74,30 @@ const api = index.injectEndpoints({
       }),
       invalidatesTags: ['auth'],
     }),
+
+    sendOtp: build.mutation<SendOtpResponse, SendOtpRequest>({
+      query: (body) => ({
+        url: '/send-otp',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['auth'],
+    }),
+
+    logInOtp: build.mutation<LogInOtpResponse, LogInOtpRequest>({
+      query: (body) => ({
+        url: '/login-otp',
+        method: 'POST',
+        body: {
+          email: body.email,
+          otp: body.otp,
+        },
+        params: {
+          next: body.next,
+        },
+      }),
+      invalidatesTags: ['auth'],
+    }),
   }),
 });
 
@@ -84,5 +108,7 @@ export const {
   useEmailVerificationMutation,
   useForgotPasswordMutation,
   useResetPasswordMutation,
+  useSendOtpMutation,
+  useLogInOtpMutation,
 } = api;
 export default api;

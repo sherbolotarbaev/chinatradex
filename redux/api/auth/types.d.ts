@@ -52,3 +52,21 @@ type ResetPasswordRequest = {
 type ResetPasswordResponse = {
   message: string;
 };
+
+type SendOtpRequest = {
+  email: string;
+};
+
+type SendOtpResponse = {
+  email: string;
+};
+
+type LogInOtpRequest = {
+  email: string;
+  otp: string;
+  next: string;
+};
+
+type LogInOtpResponse = {
+  redirectUrl: string;
+};
