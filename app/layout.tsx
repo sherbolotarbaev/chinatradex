@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 import { Suspense } from 'react';
 import { siteConfig } from '@/config/site';
@@ -41,6 +40,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  initialScale: 1,
+  width: 'device-width',
+  maximumScale: 1,
+};
+
 interface Props {
   children: React.ReactNode;
 }
@@ -48,14 +53,6 @@ interface Props {
 export default async function RootLayout({ children }: Readonly<Props>) {
   return (
     <html lang="en">
-      <Head>
-        <meta charSet="UTF-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Head>
-
       <body>
         <Notifications />
 
